@@ -1,0 +1,22 @@
+<div class="comment-container">
+	{{> global/vote}}
+	<div class="body-container">
+		<span class="score">Score: {{score}}</span>
+		<a href="" title="">
+			<p class="user">UserID: {{authorUserId}}</p>
+		</a>
+		
+			<div class="comment">
+				<p>{{content}}</p>
+			</div>
+		<div class="reply-section">
+		   <section class="c-reply">reply</section>
+		   <section class="reply-pullout">
+		   	  <form action="" method="post" class="usrform">
+				  <textarea type="text" class="replybox" name="replybox"></textarea>
+				  <button type="submit" class="replybox-submit"> Add Comment </button>
+			   </form>
+		   </section>
+	    </div>
+	</div>
+</div>

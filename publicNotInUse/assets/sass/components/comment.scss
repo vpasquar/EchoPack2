@@ -1,0 +1,163 @@
+.comment-container {
+    padding: 20px 15px;
+    margin: 20px 5px;
+    min-height: 145px;
+    position: relative;
+    border-radius: 2px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .15), 0 3px 4px 0 rgba(0, 0, 0, .1), 0 3px 3px -2px rgba(0, 0, 0, .1);
+    .vote-container {
+        position: absolute;
+        width: 5%;
+        height: auto;
+        top: 75px;
+        left: 4%;
+        .up-v {
+            position: relative;
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-bottom: 17px solid $bl;
+            margin-bottom: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all .2s ease-in-out;
+            @media screen and (max-width: 920px) {
+                font-size: 12px;
+            }
+            &:hover {
+                transform: translateY(-2px);
+                border-bottom: 17px solid #cdcdcd;
+                .up-score {
+                    transform: translateY(0px);
+                }
+            }
+            .up-score {
+                position: absolute;
+                right: -60px;
+                top: 0px;
+                min-width: 50px;
+                letter-spacing: 1px;
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+        .down-v {
+            position: relative;
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-top: 17px solid $bl;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all .2s ease-in-out;
+            @media screen and (max-width: 920px) {
+                font-size: 12px;
+            }
+            &:hover {
+                transform: translateY(2px);
+                border-top: 17px solid #cdcdcd;
+                .down-score {
+                    transform: translateY(0px);
+                }
+            }
+            .down-score {
+                position: absolute;
+                right: -60px;
+                top: -17px;
+                min-width: 50px;
+                letter-spacing: 1px;
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+        &:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+    }
+    .body-container {
+        width: 85%;
+        float: right;
+        h3 {
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        .user {
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+        &:after {
+            content: '';
+            clear: both;
+        }
+        .comment {
+            padding: 10px 0px;
+            margin: 10px 0px;
+        }
+        .reply-section {
+            .c-reply {
+                position: relative;
+                right: 5%;
+                float: right;
+                top: 1%;
+                cursor: pointer;
+                margin-bottom: 2px;
+                &:hover {
+                    color: #cdcdcd;
+                }
+            }
+            .reply-pullout {
+                display: none;
+                margin: 10px 0px;
+                padding: 30px 0px;
+                float: left;
+                width: 65%;
+                &.toggle {
+                    display: block;
+                }
+                .replybox {
+                    height: 150px;
+                    width: 100%;
+                    display: block;
+                    margin: 5px 0px;
+                }
+                .replybox-submit {
+                    margin: 10px 0px;
+                    border: 1px solid #cdcdcd;
+                    -webkit-webkit-appeareance: none;
+                    -moz-webkit-appeareance: none;
+                    -ms-webkit-appeareance: none;
+                    -o-webkit-appeareance: none;
+                    webkit-appeareance: none;
+                    background: white;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    transition: all .333s ease;
+                    &:hover {
+                        color: white;
+                        background: black;
+                        border: 1px solid black;
+                    }
+                }
+            }
+        }
+
+        .score {
+            position: relative;
+            right: 5%;
+            top: 20px;
+            float: right;
+        }
+    }
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
