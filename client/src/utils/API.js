@@ -7,8 +7,15 @@ export default {
   //login user
 
   //user count
+  getCount: function(){
+    return axios.get("/api/usercount");
+  },
  
   // get boxes/forums(main page) ######MAIN
+
+  getBoxMain: function(){
+    return axios.get("/api/home");
+  }
  
  // create box/forum             ######MAIN/USERCREATE
 

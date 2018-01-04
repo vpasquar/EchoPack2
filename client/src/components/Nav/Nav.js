@@ -10,7 +10,12 @@ const Nav = () => (
       <ul className="">
         <li className="">
           <Link className="" to="/Box">
-            Forum
+            Dead Link
+          </Link>
+        </li>
+        <li className="">
+          <Link className="" to={"/Box/1"}>
+            Forum 1
           </Link>
         </li>
       </ul>

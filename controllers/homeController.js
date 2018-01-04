@@ -4,7 +4,7 @@ var router = express.Router();
 
 var db = require('../models');
 
-router.get("/", function(req, res) {
+router.get("/api/home", function(req, res) {
     // res.render("home");
     db.Box.findAll({
         // order:[[sequelize.col('colName'), 'DESC']]
@@ -13,7 +13,8 @@ router.get("/", function(req, res) {
         let forumList = {
             box: dbBox
         }
-        res.json(forumList);
+        // console.log(forumList);
+        res.send(forumList);
     });
 })
 
