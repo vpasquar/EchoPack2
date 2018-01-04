@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {Container} from './components/Grid'
 import Main from './pages/Main';
 import Box from './pages/Box';
 import Post from './pages/Post';
@@ -9,7 +8,7 @@ import Nav from './components/Nav';
 
 const App = () => (
   <Router>
-    <Container >
+  <div>
       <Nav />
       <Switch>
         <Route exact path="/" component={Main} />
@@ -17,7 +16,7 @@ const App = () => (
         <Route exact path="/Box/Post" component={Post} />
         <Route component={NoMatch} />
       </Switch>
-    </Container>
+    </div>
   </Router>
 );
 

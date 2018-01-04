@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Container } from '../../components/Grid';
-import {List, ListItem} from '../../components/List';
-import Jumbotron from '../../components/Jumbotron';
 import API from '../../utils/API';
+import Sidebar from '../../components/Sidebar'
 
 class Box extends Component {
   //state just includes the articles that will be stored once we contact our API (database)
@@ -18,9 +16,10 @@ class Box extends Component {
 
   render() {
     return (
-      <Row>
+      <div>
          <h1> sah dude box </h1>
-      </Row>
+         <Sidebar />
+         </div>
     );
   }
 }
