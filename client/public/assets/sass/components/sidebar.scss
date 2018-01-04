@@ -1,0 +1,13 @@
+.sidebar {
+	width: 25%;
+	float: right;
+    .create-btn {
+        padding: 20px;
+        background: black;
+        border: 1px solid white;
+        color: white;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+    }
+}

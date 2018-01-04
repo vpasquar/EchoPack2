@@ -1,0 +1,37 @@
+@import './variable-mixins/color';
+@import './variable-mixins/fonts';
+@import './partials/normalize';
+@import './components/header';
+@import './components/footer';
+@import './components/sidebar';
+
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Open+Sans|Sarala');
+
+///POTENTIAL FONTS
+// font-family: 'Sarala', sans-serif;
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Catamaran', sans-serif;
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Sarala', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    overflow-x: hidden;
+    height: 100%;
+    a {
+        color: black;
+        text-decoration: none;
+        transition: all .2s ease-in-out;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
