@@ -62,6 +62,7 @@ class UserLogin extends Component {
             API.saveNewUser(query)
             .then(res => {
                 this.initializeState();
+                this.setState({signup:false});
                 console.log(res);
                 alert("welcome to echopack")
             })
