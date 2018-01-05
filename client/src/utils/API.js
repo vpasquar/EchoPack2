@@ -3,7 +3,13 @@ import axios from 'axios';
 export default {
 
   //create user
+  saveNewUser: function(query) {
+    return axios.post("/api/createUser", query);
+  },
 
+  loginUser: function(query) {
+    return axios.post("/api/login", query);
+  },
   //login user
 
   //user count
@@ -15,15 +21,25 @@ export default {
 
   getBoxMain: function(){
     return axios.get("/api/home");
-  }
+  },
  
  // create box/forum             ######MAIN/USERCREATE
+ createBox: function(){
+   return axios.post("");
+ },
 
   // get posts from individual box page      ######BOX
+  getPosts:function(){
+    return axios.get("");
+  },
 
   // create post for individual box page     ####### BOX/USERCREATE
+  createPost: function(){
+    return axios.get("");
+  }
 
   //delete post??                         ###### BOX
+
 
   //get comments for individual post         ##### POST
  
