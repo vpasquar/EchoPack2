@@ -12,6 +12,7 @@ module.exports = function(app) {
     // The following is the post route for authentication. 
 
     app.post('/api/login',passport.authenticate('local'), function(req, res){
+          
           console.log("poop")
           console.log(req.user);
           res.json(req.user);

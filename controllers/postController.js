@@ -6,26 +6,26 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 // GET route for getting all of the posts
-// app.get("/api/posts", function(req, res) {
-//     var query = {};
-//     if (req.query.box_id) {
-//         query.BoxId = req.query.box_id;
-//     }
-//     // Here we add an "include" property to our options in our findAll query
-//     // We set the value to an array of the models we want to include in a left outer join
-//     // In this case, just db.Box
-//     db.Post.findAll({
-//             where: query,
-//             include: [db.Box]
-//         }).then(function(dbPost) {
-//             res.json(dbPost);
-//         })
-//         .catch(function(err) {
-//             // Whenever a validation or flag fails, an error is thrown
-//             // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-//             res.json(err);
-//         });
-// });
+app.get("/api/posts", function(req, res) {
+    var query = {};
+    if (req.query.box_id) {
+        query.BoxId = req.query.box_id;
+    }
+    // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Box
+    db.Post.findAll({
+            where: query,
+            include: [db.Box]
+        }).then(function(dbPost) {
+            res.json(dbPost);
+        })
+        .catch(function(err) {
+            // Whenever a validation or flag fails, an error is thrown
+            // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+            res.json(err);
+        });
+});
 
 
 // Get route for retrieving a single post

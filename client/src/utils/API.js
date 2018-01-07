@@ -2,15 +2,7 @@ import axios from 'axios';
 
 export default {
 
-  //create user
-  saveNewUser: function(query) {
-    return axios.post("/api/createUser", query);
-  },
 
-  loginUser: function(query) {
-    return axios.post("/api/login", query);
-  },
-  //login user
 
   //user count
   getCount: function(){
@@ -23,6 +15,15 @@ export default {
     return axios.get("/api/home");
   },
  
+   //create user
+  saveNewUser: function(query) {
+    return axios.post("/api/createUser", query);
+  },
+
+  loginUser: function(query) {
+    return axios.post("/api/login", query);
+  },
+  //login user
  // create box/forum             ######MAIN/USERCREATE
  createBox: function(){
    return axios.post("");

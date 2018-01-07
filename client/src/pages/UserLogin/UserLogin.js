@@ -82,6 +82,14 @@ class UserLogin extends Component {
     }
 
     render() {
+        const {fName, lName, uName, eMail, passW} = this.state;
+        const loginEnabled = 
+              (uName.length > 0) &&
+              (passW.length > 0)  
+        const signupEnabled = 
+              (loginEnabled)     &&
+              (fName.length > 0) &&
+              (lName.length > 0)
         return (
             <div className="container">
                <div className="main-user-section">
@@ -108,7 +116,8 @@ class UserLogin extends Component {
                               <form className = "signup-form" action="/api/User" method="post">
                                  <div className="field-wrap">
                                      <label>
-                                         First Name<span className="req">*</span>
+                                         First Name
+                                          <span className="req">*</span>
                                      </label>
                                      <input
                                         value={this.state.fName}
@@ -147,13 +156,13 @@ class UserLogin extends Component {
 
                                  <div className="field-wrap">
                                      <label>
-                                         Email Address<span className="req">*</span>
+                                         Email Address
                                      </label>
                                      <input
                                          value={this.state.eMail}
                                          onChange={this.handleInputChange}
                                          name="eMail"
-                                         placeholder="Email (required)"
+                                         placeholder="Email (not required)"
                                          id="new-email"
                                          type="email"
                                      />
@@ -174,6 +183,7 @@ class UserLogin extends Component {
                                  </div>
                               
                                  <button 
+                                     disabled = {!signupEnabled}
                                      onClick={this.handleFormSubmit}
                                      name="submitSignup"
                                      //type="submit" 
@@ -222,6 +232,7 @@ class UserLogin extends Component {
                                 <p className="forgot"><a href="#">Forgot Password?</a></p>
                           
                                 <button
+                                   disabled={!loginEnabled}
                                    onClick={this.handleFormSubmit}
                                    name="submitLogin"
                                    //type="submit" 
