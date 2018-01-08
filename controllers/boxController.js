@@ -31,7 +31,7 @@ module.exports = function(app) {
                     console.log(dbPost);
                     console.log(hbsObj.box);
                     // We have access to the Boxes as an argument inside of the callback function
-                    res.render("forum", hbsObj);
+                    res.send("forum", hbsObj);
                 });
                 // res.render("forum");
             });

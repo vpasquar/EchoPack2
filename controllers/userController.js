@@ -12,7 +12,8 @@ module.exports = function(app) {
     // The following is the post route for authentication. 
 
     app.post('/api/login',passport.authenticate('local'), function(req, res){
-          console.log("jesus poop")
+          
+          console.log("poop")
           console.log(req.user);
           res.json(req.user);
 
@@ -21,18 +22,18 @@ module.exports = function(app) {
 
     //
     // POST route for saving a new User
-    app.post("/api/User", function(req, res) {
+    app.post("/api/createUser", function(req, res) {
 
         console.log("User Data:");
         console.log(req.body);
         // create takes an argument of an object describing the item we want to
         // insert into our table. (req.body)
         db.User.create({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                userName: req.body.userName,
-                email: req.body.email,
-                password: req.body.password
+                firstName: req.body.fName,
+                lastName: req.body.lName,
+                userName: req.body.uName,
+                email: req.body.eMail,
+                password: req.body.passW
 
             }).then(function(dbUser) {
                 // We have access to the new todo as an argument inside of the callback function

@@ -18,6 +18,11 @@ const Nav = () => (
             Forum 1
           </Link>
         </li>
+        <li className="">
+          <Link className="" to={"/userauth"}>
+             Login/Signup
+          </Link>   
+        </li>
       </ul>
     </div>
   </nav>
