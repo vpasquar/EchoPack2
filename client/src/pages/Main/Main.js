@@ -23,28 +23,11 @@ class Main extends Component {
             .catch(err => console.log(err));
     }
 
-    incrementUp = e => {
-        e.preventDefault();
-        console.log("Adding by One")
-        let num = this.state.counter;
-        this.setState({counter: this.state.counter +=1});
-    };
-
-    incrementDown = e => {
-        e.preventDefault();
-        console.log("Adding by One")
-        this.setState({counter: this.state.counter -= 1});
-    };
-
-
     render() {
         return (
             <section className="mainpage">
 
-        <button onClick={this.incrementUp}>up</button>
-        <button onClick={this.incrementDown}>down</button>
-
-        <p>Counter {this.state.counter} </p>
+      
         <div className="container">
             <div className="main-content">
              {this.state.boxes.map(box => (
