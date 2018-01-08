@@ -48,6 +48,7 @@ class Main extends Component {
         <div className="container">
             <div className="main-content">
              {this.state.boxes.map(box => (
+                <Link className ="" to={"/Box/" + box.id}>
                   <BoxPanel 
                     key={box.id}
                     id={box.id}
@@ -56,6 +57,7 @@ class Main extends Component {
                     sentimentScore={box.sentimentScore}
                     title={box.title}
                   />
+                </Link>  
                   ))}
             </div>
            <Sidebar userCount={this.state.users} />
