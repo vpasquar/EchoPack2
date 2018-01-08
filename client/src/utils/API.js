@@ -26,7 +26,7 @@ export default {
   //login user
  // create box/forum             ######MAIN/USERCREATE
  createBox: function(){
-   return axios.post("");
+   return axios.post("/api/box");
  },
 
   // get posts from individual box page      ######BOX
@@ -36,7 +36,7 @@ export default {
 
   // create post for individual box page     ####### BOX/USERCREATE
   createPost: function(){
-    return axios.get("");
+    return axios.post("/api/checkbox");
   }
 
   //delete post??                         ###### BOX
