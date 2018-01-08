@@ -30,8 +30,8 @@ export default {
  },
 
   // get posts from individual box page      ######BOX
-  getPosts:function(){
-    return axios.get("");
+  getPosts:function(boxId){
+    return axios.get("../../api/posts/" + boxId);
   },
 
   // create post for individual box page     ####### BOX/USERCREATE

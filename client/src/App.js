@@ -14,8 +14,8 @@ const App = () => (
       <Nav />
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/Box/:id" component={Box} />
-        <Route exact path="/Box/Post/:id" component={Post} />
+        <Route exact path="/Box/:title/:id" component={Box} />
+        <Route exact path="/Box/Post/:title/:id" component={Post} />
         <Route exact path="/userauth" component={UserLogin} />
         <Route exact path="/create" component={UserCreate} />
         <Route component={NoMatch} />

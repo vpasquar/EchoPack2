@@ -30,8 +30,9 @@ class Main extends Component {
       
         <div className="container">
             <div className="main-content">
-             {this.state.boxes.map(box => (
-                <Link className ="" to={"/Box/" + box.id}>
+             {this.state.boxes.map( (box,i) => (
+                <Link className =""
+                      to={"/Box/" + box.title + "/" + box.id}>
                   <BoxPanel 
                     key={box.id}
                     id={box.id}

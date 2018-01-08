@@ -6,11 +6,11 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 // GET route for getting all of the posts
-app.get("/api/posts", function(req, res) {
+app.get("/api/posts/:boxId", function(req, res) {
     var query = {};
-    if (req.query.box_id) {
-        query.BoxId = req.query.box_id;
-    }
+    if (req.params.boxId) {
+        query.BoxId = req.params.boxId;
+    } 
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Box
@@ -18,7 +18,11 @@ app.get("/api/posts", function(req, res) {
             where: query,
             include: [db.Box]
         }).then(function(dbPost) {
-            res.json(dbPost);
+
+            let postList = {
+                posts:dbPost
+            }
+            res.send(postList);
         })
         .catch(function(err) {
             // Whenever a validation or flag fails, an error is thrown
@@ -29,35 +33,35 @@ app.get("/api/posts", function(req, res) {
 
 
 // Get route for retrieving a single post
-app.get("/post", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Box
+// app.get("/post", function(req, res) {
+//     // Here we add an "include" property to our options in our findOne query
+//     // We set the value to an array of the models we want to include in a left outer join
+//     // In this case, just db.Box
 
-    if (req.query.id) {
-      console.log("Querying from: " + req.query.id);
-      db.Post.findOne({
-        where: {
-          id: req.query.id
-        }
-      }).then(function(dbPost){
+//     if (req.query.id) {
+//       console.log("Querying from: " + req.query.id);
+//       db.Post.findOne({
+//         where: {
+//           id: req.query.id
+//         }
+//       }).then(function(dbPost){
 
-        db.Comment.findAll({
-            where: {
-                PostId: req.query.id
-            }
-        }).then(function(dbComment) {
-          let hbsObj = {
-              comment:dbComment,
-              post: dbPost
-          }
+//         db.Comment.findAll({
+//             where: {
+//                 PostId: req.query.id
+//             }
+//         }).then(function(dbComment) {
+//           let hbsObj = {
+//               comment:dbComment,
+//               post: dbPost
+//           }
 
-            res.render("postpage",hbsObj);
-        });
-      })
+//             res.render("postpage",hbsObj);
+//         });
+//       })
         
-    }
-})
+//     }
+// })
 
 
 // POST route for saving a new post
