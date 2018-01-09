@@ -32,9 +32,10 @@ class Box extends Component {
     render() {
         return (
 
-        <section className="mainpage">
+        <section className="content">
           
         <div className="container">
+         <Sidebar userCount={this.state.users} />
             <h1> Forum: {this.props.match.params.title} </h1>
             <div className="main-content">
                 {this.state.posts.map( (post, i) => (
@@ -43,14 +44,14 @@ class Box extends Component {
                            key={post.id}
                            id={post.id}
                            createdAt={post.createdAt}
-                           description={post.content}
+                           content={post.content}
                            title={post.title}
                         />
                     </Link>  
                 ))}
              
             </div>
-           <Sidebar userCount={this.state.users} />
+          
         </div>
       </section>
         );

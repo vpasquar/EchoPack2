@@ -1,6 +1,9 @@
 .main-user-section {
     width:65%;
     margin-right:150px;
+    @media screen and (max-width: 768px){
+        width: 100%;
+    }
     .signup-log-form {
         padding: 40px;
         max-width: 600px;

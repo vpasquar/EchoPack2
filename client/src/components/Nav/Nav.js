@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = () => (
-  <nav className="main-nav">
+    <nav className="main-nav">
     <Link className="main" to="/">
-      EchoPack
+      <div className="logo">
+
+      </div>
     </Link>
     <div className="links" id="navbarNav">
       <ul className="">

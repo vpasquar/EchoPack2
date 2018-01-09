@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PostPanel = props => (
+const MainPanel = props => (
     <div className="box-panel">
     	<p>Id:{props.id}</p>
-    	<h2>Post Name: {props.title}</h2>
-    	<p>Content: {props.description}</p>
+    	<h2>Box Name: {props.title}</h2>
+    	<p>Description: {props.description}</p>
     	{/*<p>Sentiment Score: {props.sentimentScore}</p>*/}
 	</div>
 );
 
-export default PostPanel;
+export default MainPanel;

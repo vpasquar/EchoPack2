@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
-import BoxPanel from '../../components/BoxPanel';
+import MainPanel from '../../components/MainPanel';
 
 class Main extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
@@ -25,16 +25,17 @@ class Main extends Component {
 
     render() {
         return (
-            <section className="mainpage">
+            <section className="content">
 
       
         <div className="container">
+        <Sidebar userCount={this.state.users} />
             <div className="main-content">
              {this.state.boxes.map( (box,i) => (
                 <Link className =""
                       to={"/Box/" + box.title + "/" + box.id}>
-                  <BoxPanel 
-                    key={box.id}
+                  <MainPanel 
+                    key={i}
                     id={box.id}
                     createdAt={box.createdAt}
                     description={box.description}
@@ -44,7 +45,7 @@ class Main extends Component {
                 </Link>  
                   ))}
             </div>
-           <Sidebar userCount={this.state.users} />
+           
         </div>
       </section>
         );

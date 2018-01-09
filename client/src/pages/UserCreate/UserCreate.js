@@ -219,7 +219,6 @@ class UserCreate extends Component {
 
                </div>
 
-               <Sidebar userCount={0} />
             </div>
 
         );
