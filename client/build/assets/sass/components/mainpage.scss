@@ -1,6 +1,20 @@
-section.mainpage{
-	.main-content{
-		width: 75%;
-		background: red;
-	}
+section.content {
+    .main-content {
+        width: 75%;
+        height: 100vh;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+    a {
+        display: block;
+       
+        &:visited {
+            color: $drk-bl;
+        }
+    }
+
+    .container {
+        border: 1px solid #cdcdcd;
+    }
 }

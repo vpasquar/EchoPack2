@@ -1,19 +1,32 @@
 nav {
     display: inline-block;
     width: 100%;
-
+    background: rgba(0, 0, 0, .05);
     a {
         display: inline-block;
-        padding: 10px 25px;
+        padding: 10px 25px 0px 25px;
+        color: black;
+        float: left;
+        &:visited {
+            color: black;
+        }
+    }
+    .logo {
+        background-image: url('../images/echopack-logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 75px;
+        height: 65px;
+        display: inline-block;
     }
     div {
-    	display: inline-block;
+        display: inline-block;
         ul {
             // display: inline-block;
             li {
                 display: inline-block;
-                a{
-                	padding: 10px 20px;
+                a {
+                    padding: 10px 20px;
                 }
             }
         }
