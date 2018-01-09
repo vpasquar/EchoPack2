@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
-import BoxPanel from '../../components/BoxPanel';
+// import BoxPanel from '../../components/BoxPanel';
 import PostPanel from'../../components/PostPanel';
 
 class Box extends Component {
@@ -39,13 +39,14 @@ class Box extends Component {
             <h1> Forum: {this.props.match.params.title} </h1>
             <div className="main-content">
                 {this.state.posts.map( (post, i) => (
-                    <Link className ="" to={"/Box/Post/" + post.title + "/" + post.id}>
+                    <Link className ="" to={"/Box/Post/" + post.title + "/" + post.id} key={i}>
                         <PostPanel 
                            key={post.id}
                            id={post.id}
                            createdAt={post.createdAt}
                            content={post.content}
                            title={post.title}
+                           author={post.authorUserId}
                         />
                     </Link>  
                 ))}

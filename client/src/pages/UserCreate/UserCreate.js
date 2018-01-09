@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/API';
-import Sidebar from '../../components/Sidebar';
+// import Sidebar from '../../components/Sidebar';
 
 class UserCreate extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
