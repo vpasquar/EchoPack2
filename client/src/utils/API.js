@@ -37,12 +37,19 @@ export default {
   // create post for individual box page     ####### BOX/USERCREATE
   createPost: function(){
     return axios.post("/api/checkbox");
-  }
+  },
 
   //delete post??                         ###### BOX
 
 
   //get comments for individual post         ##### POST
+  getComments: function(postId) {
+    return axios.get("../../../api/comments/" + postId)
+  },
+
+  createComment: function(query) {
+    return axios.post("../../../api/saveComment", query)
+  }
  
   //create comment                         ###### POST
 

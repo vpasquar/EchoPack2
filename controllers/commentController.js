@@ -4,17 +4,44 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-app.post("/api/post/f", function(req, res) {
+
+
+app.get("/api/comments/:postId", function(req,res) {
+    let query = {};
+    if (req.params.postId) {
+    	query.postId = req.params.postId
+    }
+
+    db.Comment.findAll({
+        where: query,
+        include:[db.Post]
+       
+    }).then(function(dbComment) {
+      let commentList = {
+          comments:dbComment,
+      }
+        res.send(commentList);
+    })
+    .catch(function(err) {
+    	res.json(err);
+    });
+});  
+
+
+//create a comment
+app.post("/api/saveComment/", function(req, res) {
     db.Comment.create({
-        PostId: req.body.fID,
+        PostId: req.body.postId,
         UserId: 1,
         authorUserId: 1,
-        content: req.body.comment,
+        content: req.body.content,
         score: 0
 
     }).then(function(dbPost) {
         res.json(dbPost);
     });
 });
+
+
 
 };

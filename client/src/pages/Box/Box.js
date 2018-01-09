@@ -14,8 +14,6 @@ class Box extends Component {
     };
 
     componentDidMount() {
-        console.log(this.props.match.params);
-        console.log(this.props.match.params);
         API.getCount()
             .then(res => this.setState({ users: res.data.count }))
             .catch(err => console.log(err));
@@ -40,7 +38,7 @@ class Box extends Component {
             <h1> Forum: {this.props.match.params.title} </h1>
             <div className="main-content">
                 {this.state.posts.map( (post, i) => (
-                    <Link className ="" to={"/Box/Post" + post.id}>
+                    <Link className ="" to={"/Box/Post/" + post.title + "/" + post.id}>
                         <PostPanel 
                            key={post.id}
                            id={post.id}
