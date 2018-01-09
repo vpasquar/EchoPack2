@@ -41,7 +41,7 @@ module.exports = function(app) {
 
 
     // POST route for saving a new forum
-    app.post("/api/box/:title", function(req, res) {
+    app.post("/api/box", function(req, res) {
         console.log("created");
         console.log("Box Data:");
         console.log(req.body);

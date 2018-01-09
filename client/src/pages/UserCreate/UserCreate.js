@@ -47,7 +47,7 @@ class UserCreate extends Component {
         })
     }
 
-    handlePostSubmit = e => {
+    handleFormSubmit = e => {
         e.preventDefault();
         const boxQuery = {
             forumTitle: this.state.bTitle,
@@ -56,8 +56,8 @@ class UserCreate extends Component {
 
         const postQuery = {
             pBox: this.state.pBox,
-            pTitle: this.state.pTitle,
-            pCotnent: this.state.pContent
+            title: this.state.pTitle,
+            content: this.state.pContent
         }
 
         if (this.state.cStatus) {
@@ -72,14 +72,23 @@ class UserCreate extends Component {
                 });
         } else {
             //Requesting Post Creation
-            API.createPost(postQuery)
+            console.log("I've triggered...Post");
+            console.log(`Searching for ID of Box...`);
+            API.getBoxId(postQuery)
                 .then(res => {
-                    this.resetState();
-                    console.log(res);
+                    postQuery.BoxId = res.data.id;
+                    console.log(`Posting in Box ${postQuery.pBox} with an ID of ${postQuery.BoxId}`);
+                    API.createPost(postQuery)
+                        .then(res => {
+                            this.resetState();
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        })
                 })
-                .catch(err => {
-                    console.log(err);
-                })
+                .catch(err => console.log(err));
+
         }
 
     };
@@ -112,7 +121,7 @@ class UserCreate extends Component {
 
                         <div id="box-form">
                               <h1> Create a Box </h1>
-                              <form className = "forum-create" action="/api/box" method="post">
+                              <form className = "forum-create" action={"/api/box"} method="post">
                                  <div className="field-wrap">
                                      <label>
                                           Box Title
@@ -158,7 +167,7 @@ class UserCreate extends Component {
 
                             <h1>Add a Post</h1>
                       
-                            <form className= "post-form" action="/api/checkbox" method="post">
+                            <form className= "post-form" action="/api/posts" method="post">
                       
                                 <div className="field-wrap">
                                     <label>

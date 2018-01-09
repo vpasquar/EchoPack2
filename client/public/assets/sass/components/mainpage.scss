@@ -2,6 +2,7 @@ section.content {
     .main-content {
         width: 75%;
         height: 100vh;
+        min-height: 2000px;
         @media screen and (max-width: 768px) {
             width: 100%;
         }

@@ -25,8 +25,8 @@ export default {
   },
   //login user
  // create box/forum             ######MAIN/USERCREATE
- createBox: function(){
-   return axios.post("/api/box");
+ createBox: function(boxQuery){
+   return axios.post("/api/box", boxQuery);
  },
 
   // get posts from individual box page      ######BOX
@@ -35,8 +35,8 @@ export default {
   },
 
   // create post for individual box page     ####### BOX/USERCREATE
-  createPost: function(){
-    return axios.post("/api/checkbox");
+  createPost: function(postQuery){
+    return axios.post("/api/posts", postQuery);
   },
 
   //delete post??                         ###### BOX
@@ -49,10 +49,13 @@ export default {
 
   createComment: function(query) {
     return axios.post("../../../api/saveComment", query)
-  }
+  },
  
   //create comment                         ###### POST
-
+  getBoxId: function(postQuery){
+    console.log(postQuery)
+    return axios.get("../../api/checkBox/" + postQuery.pBox)
+  }
   //delete comment?                       #######POST
  
 

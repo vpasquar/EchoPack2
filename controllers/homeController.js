@@ -42,12 +42,12 @@ router.get("/api/usercount", function(req, res) {
 
 });
 
-router.get("/api/checkbox", function(req, res) {
+router.get("/api/checkbox/:title", function(req, res) {
     console.log("triggered single box");
-    console.log(req.query.data.box);
+    console.log(req.params.title);
     db.Box.findOne({
         where: {
-            title: req.query.data.box
+            title: req.params.title
         }
     }).then(function(dbBox) {
         // We have access to the Boxes as an argument inside of the callback function

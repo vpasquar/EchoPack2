@@ -35,12 +35,12 @@ app.get("/api/posts/:boxId", function(req, res) {
 
 
 // POST route for saving a new post
-app.post("/api/posts/:forum/:title", function(req, res) {
+app.post("/api/posts/", function(req, res) {
     db.Post.create({
-        BoxId: req.body.boxID,
+        BoxId: req.body.BoxID,
         UserId: 1,
-        title: req.body.postTitle,
-        content: req.body.postContent
+        title: req.body.title,
+        content: req.body.content
     }).then(function(dbPost) {
         res.json(dbPost);
     });

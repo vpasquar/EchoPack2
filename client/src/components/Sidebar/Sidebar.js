@@ -6,7 +6,7 @@ const Sidebar = props => (
 	  <div className="sidecontainer">
 	  <Link to="/create">
 		  <div className="create-btn draw meet">
-		    Create Box
+		    Create
 		  </div>
 	  </Link>
 	  {props.userCount == 0 ? <span></span> : (<span className="user-count">

@@ -50,12 +50,12 @@
     }
     //Source: https://codepen.io/giana/pen/yYBpVY
     .draw {
-        transition: color 0.33s;
+        transition: color 0.25s;
 
         &::before,
         &::after {
             // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
-            border: 2px solid transparent;
+            border: 5px solid transparent;
             width: 0;
             height: 0;
         } // This covers the top & right borders (expands right, then down)
@@ -80,16 +80,16 @@
         &:hover::before {
             border-top-color: white; // Make borders visible
             border-right-color: white;
-            transition: width 0.33s ease-out, // Width expands first
-            height 0.33s ease-out 0.33s; // And then height
+            transition: width 0.25s ease-out, // Width expands first
+            height 0.25s ease-out 0.25s; // And then height
         }
 
         &:hover::after {
             border-bottom-color: white; // Make borders visible
             border-left-color: white;
             transition: border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
-            width 0.33s ease-out 0.5s, // And then exanding width
-            height 0.33s ease-out 0.75s; // And finally height
+            width 0.25s ease-out 0.5s, // And then exanding width
+            height 0.25s ease-out 0.75s; // And finally height
         }
         &.meet {
 
@@ -109,8 +109,8 @@
                 border-bottom-color: $bl;
                 border-left-color: $bl;
                 transition: // Animate height first, then width
-                height 0.33s ease-out,
-                width 0.33s ease-out 0.33s;
+                height 0.25s ease-out,
+                width 0.25s ease-out 0.25s;
             }
         }
     }
