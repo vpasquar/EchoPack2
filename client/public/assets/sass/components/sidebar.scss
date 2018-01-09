@@ -1,10 +1,10 @@
 .sidebar {
     width: 22.5%;
-    background: rgba(0, 0, 0, .1);
     height: 100vh;
     position: absolute;
     right: 25px;
     top: 100px;
+    border: 1px solid #cdcdcd;
     @media screen and (max-width: 768px){
         width: 100%;
         position: relative;
@@ -23,7 +23,8 @@
     .create-btn {
     	position: relative;
         margin: 0px auto;
-        margin-bottom: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         padding: 20px;
         background: black;
         border: 1px solid white;
@@ -93,20 +94,20 @@
         &.meet {
 
             &:hover {
-                color: red;
+                color: $bl;
             } // Start ::after in same position as ::before
             &::after {
                 top: 0;
                 left: 0;
             } // Change colors
             &:hover::before {
-                border-top-color: red;
-                border-right-color: red;
+                border-top-color: $bl;
+                border-right-color: $bl;
             }
 
             &:hover::after {
-                border-bottom-color: red;
-                border-left-color: red;
+                border-bottom-color: $bl;
+                border-left-color: $bl;
                 transition: // Animate height first, then width
                 height 0.33s ease-out,
                 width 0.33s ease-out 0.33s;

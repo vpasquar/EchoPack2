@@ -93,7 +93,7 @@ class UserLogin extends Component {
         return (
             <div className="container">
                <div className="main-user-section">
-
+                    <Sidebar userCount="0"  />
                   <div className="signup-log-form">
 
                       <ul className="tab-group">
@@ -251,7 +251,7 @@ class UserLogin extends Component {
 
                </div>
 
-               <Sidebar userCount="1"  />
+               
             </div>   
             
         );

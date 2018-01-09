@@ -1,8 +1,12 @@
 .main-user-section {
-    width:65%;
-    margin-right:150px;
-    @media screen and (max-width: 768px){
+    width: 65%;
+    margin-right: 150px;
+    @media screen and (max-width: 768px) {
         width: 100%;
+    }
+    &.create {
+        width: 75%;
+        margin: 0px auto;
     }
     .signup-log-form {
         padding: 40px;
@@ -61,8 +65,14 @@
                 text-align: center;
             }
             textarea {
-                border: 2px solid #a0b3b0;
+                border: 1px solid #cdcdcd;
                 resize: vertical;
+                width: 100%;
+                height: 200px;
+                font-size: 14px;
+                line-height: 1.5;
+                letter-spacing: .4px;
+                padding: 10px;
             }
             label {
                 margin: 10px 0px;
@@ -118,5 +128,4 @@
             }
         }
     }
-
 }

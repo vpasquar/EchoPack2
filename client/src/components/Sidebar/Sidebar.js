@@ -9,7 +9,7 @@ const Sidebar = props => (
 		    Create Box
 		  </div>
 	  </Link>
-	  {props.userCount === 0 ? <span></span> : (<span className="user-count">
+	  {props.userCount == 0 ? <span></span> : (<span className="user-count">
 		  	<p>Total Users: {props.userCount}</p>
 		  </span>)}
 

@@ -21,7 +21,7 @@ const Nav = () => (
           </Link>
         </li>
         <li className="">
-          <Link className="" to={"/userauth"}>
+          <Link className="" to={"/login"}>
              Login/Signup
           </Link>   
         </li>

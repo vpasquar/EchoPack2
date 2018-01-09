@@ -91,7 +91,7 @@ class UserCreate extends Component {
         return (
 
             <div className="container">
-               <div className="main-user-section">
+               <div className="main-user-section create">
 
                   <div className="signup-log-form">
 
@@ -121,8 +121,8 @@ class UserCreate extends Component {
                                      <input
                                         value={this.state.bTitle}
                                         onChange={this.handleInputChange}
-                                        name="fName"
-                                        placeholder="First Name (required)"
+                                        name="bTitle"
+                                        placeholder="Box Title"
                                         id="new-box"
                                      />
                                  </div>
@@ -131,10 +131,10 @@ class UserCreate extends Component {
                                      <label>
                                          Box Description<span className="req">*</span>
                                      </label>
-                                     <input
+                                     <textarea
                                          value={this.state.bDescription}
                                          onChange={this.handleInputChange}
-                                         name="boxDescription"
+                                         name="bDescription"
                                          placeholder="Box Description"
                                          id="new-boxDesc" 
                                      />
@@ -167,7 +167,7 @@ class UserCreate extends Component {
                                     <input
                                        value={this.state.pBox}
                                        onChange={this.handleInputChange}
-                                       name="Box Name"
+                                       name="pBox"
                                        placeholder="Box Name" 
                                        id="post-box"
                                     />
@@ -190,7 +190,7 @@ class UserCreate extends Component {
                                     <label>
                                         Post Content<span className="req">*</span>
                                     </label>
-                                    <input
+                                    <textarea
                                         value={this.state.pContent}
                                         onChange={this.handleInputChange}
                                         name="pContent"

@@ -7,10 +7,13 @@ section.content {
         }
     }
     a {
+        display: block;
+       
         &:visited {
             color: $drk-bl;
         }
     }
+
     .container {
         border: 1px solid #cdcdcd;
     }
