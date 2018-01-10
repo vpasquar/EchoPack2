@@ -32,6 +32,10 @@
         width: 200px;
         text-align: center;
         cursor: pointer;
+
+        &:hover{
+            background: white;
+        }
         &::before,
         &::after {
             box-sizing: inherit;
@@ -50,12 +54,12 @@
     }
     //Source: https://codepen.io/giana/pen/yYBpVY
     .draw {
-        transition: color 0.25s;
+        transition: color .5s ease .25s, background .4s ease; 
 
         &::before,
         &::after {
             // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
-            border: 5px solid transparent;
+            border: 2px solid transparent;
             width: 0;
             height: 0;
         } // This covers the top & right borders (expands right, then down)

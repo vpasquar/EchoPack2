@@ -20,7 +20,7 @@ const Nav = () => (
             Forum 1
           </Link>
         </li>
-        <li className="">
+        <li className="login-item">
           <Link className="" to={"/login"}>
              Login/Signup
           </Link>   
