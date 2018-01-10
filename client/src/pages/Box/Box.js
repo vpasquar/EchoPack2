@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
 // import BoxPanel from '../../components/BoxPanel';
-import PostPanel from'../../components/PostPanel';
+import PostPanel from '../../components/PostPanel';
 
 class Box extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
@@ -18,21 +18,31 @@ class Box extends Component {
             .then(res => this.setState({ users: res.data.count }))
             .catch(err => console.log(err));
 
-        const boxId = this.props.match.params.id
-        console.log("boxid" + boxId)
-       
-        API.getPosts(boxId)
-            .then(res => { 
-                console.log(res.data.posts);
-                this.setState({ posts: res.data.posts })
+        const boxTitle = {};
+        boxTitle.pBox = this.props.match.params.title;
+        console.log("boxid" + boxTitle.pBox);
+        API.getBoxId(boxTitle)
+            .then(res => {
+                console.log(res.data.id);
+                const boxId = res.data.id;
+                API.getPosts(boxId)
+                    .then(res => {
+                        console.log(res.data.posts);
+                        this.setState({ posts: res.data.posts })
+                    })
+                    .catch(err => console.log(err));
+
+
             })
             .catch(err => console.log(err));
+
+
     }
 
     render() {
         return (
 
-        <section className="content">
+            <section className="content">
           
         <div className="container">
          <Sidebar userCount={this.state.users} />

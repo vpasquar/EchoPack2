@@ -35,9 +35,9 @@ class Main extends Component {
         <div className="container">
         <Sidebar userCount={this.state.users} />
             <div className="main-content">
-             {this.state.boxes.map( (box,i) => (
+             {this.state.boxes.map((box,i) => (
                 <Link className =""
-                      to={"/Box/" + box.title + "/" + box.id} key={i}>
+                      to={"/Box/" + box.title} key={i}>
                   <BoxPanel 
                     key={i}
                     id={box.id}

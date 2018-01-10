@@ -36,8 +36,9 @@ app.get("/api/posts/:boxId", function(req, res) {
 
 // POST route for saving a new post
 app.post("/api/posts/", function(req, res) {
+    console.log(req.body.BoxId);
     db.Post.create({
-        BoxId: req.body.BoxID,
+        BoxId: req.body.BoxId,
         UserId: 1,
         title: req.body.title,
         content: req.body.content
