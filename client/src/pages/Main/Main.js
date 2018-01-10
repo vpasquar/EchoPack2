@@ -29,25 +29,26 @@ class Main extends Component {
 
     render() {
         return (
-            <section className="content">
-
-      
-        <div className="container">
+    
+    <section className="content">  
+    <div className="container">
         <Sidebar userCount={this.state.users} />
             <div className="main-content">
-             {this.state.boxes.map((box,i) => (
-                <Link className =""
-                      to={"/Box/" + box.title} key={i}>
-                  <BoxPanel 
-                    key={i}
-                    id={box.id}
-                    createdAt={box.createdAt}
-                    description={box.description}
-                    sentimentScore={box.sentimentScore}
-                    title={box.title}
-                  />
-                </Link>  
-                  ))}
+                <div className="container clean">
+                 {this.state.boxes.map((box,i) => (
+                    <Link className =""
+                          to={"/Box/" + box.title} key={i}>
+                      <BoxPanel 
+                        key={i}
+                        id={box.id}
+                        createdAt={box.createdAt}
+                        description={box.description}
+                        sentimentScore={box.sentimentScore}
+                        title={box.title}
+                      />
+                    </Link>  
+                      ))}
+                </div>
             </div>
            
         </div>

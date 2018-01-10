@@ -17,5 +17,9 @@ section.content {
 
     .container {
         border: 1px solid #cdcdcd;
+        &.clean{
+            border: none;
+        }
     }
 }
+

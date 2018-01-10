@@ -1,3 +1,5 @@
+@import '../variable-mixins/color';
+
 .sidebar {
     width: 22.5%;
     height: 100vh;
@@ -5,23 +7,23 @@
     right: 25px;
     top: 100px;
     border: 1px solid #cdcdcd;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
         width: 100%;
         position: relative;
         top: auto;
         right: auto;
         height: auto;
     }
-    .sidecontainer{
+    .sidecontainer {
         padding: 15px 0px;
     }
-    a{
+    a {
         display: block;
-        width: 200px; 
+        width: 200px;
         margin: 0px auto;
     }
     .create-btn {
-    	position: relative;
+        position: relative;
         margin: 0px auto;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -33,7 +35,7 @@
         text-align: center;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             background: white;
         }
         &::before,
@@ -51,10 +53,9 @@
             margin: 0px auto;
             text-align: left;
         }
-    }
-    //Source: https://codepen.io/giana/pen/yYBpVY
+    } //Source: https://codepen.io/giana/pen/yYBpVY
     .draw {
-        transition: color .5s ease .25s, background .4s ease; 
+        transition: color .5s ease .25s, background .4s ease;
 
         &::before,
         &::after {
