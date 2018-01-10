@@ -60,6 +60,7 @@ class Post extends Component {
             <section className="content">
           
         <div className="container">  
+          <Sidebar userCount={this.state.users} />
             <div className="main-content">
             <div className="replyTo container clean">
                 <h1> Post Title: {this.props.match.params.title} </h1>
@@ -89,7 +90,7 @@ class Post extends Component {
                 
                 
             </div>
-           <Sidebar userCount={this.state.users} />
+         
         </div>
         </section>
         );
