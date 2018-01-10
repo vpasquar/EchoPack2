@@ -1,3 +1,5 @@
+@import '../variable-mixins/color';
+
 nav {
     display: inline-block;
     width: 100%;
@@ -6,7 +8,7 @@ nav {
     position: relative;
     a {
         display: inline-block;
-        padding: 10px 25px 0px 25px;
+        padding: 15px 25px 0px 30px;
         color: black;
         float: left;
         &:visited {
@@ -17,9 +19,13 @@ nav {
         background-image: url('../images/echopack-logo.png');
         background-size: contain;
         background-repeat: no-repeat;
-        width: 75px;
-        height: 65px;
+        width: 65px;
+        height: 45px;
         display: inline-block;
+        transition: all .2s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+        }
     }
     div {
         display: inline-block;
@@ -37,8 +43,9 @@ nav {
                     right: 0;
                     a{
                         color: grey;
+                        font-size: 14px;
                         &:hover{
-                            color: $sal;
+                            color: $r;
                         }
                     }
                 }

@@ -5,8 +5,8 @@
     height: 100vh;
     position: absolute;
     right: 25px;
-    top: 100px;
-    border: 1px solid #cdcdcd;
+    top: auto;
+    border-left: 1px solid #cdcdcd;
     @media screen and (max-width: 768px) {
         width: 100%;
         position: relative;
