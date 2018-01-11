@@ -28,7 +28,11 @@ export default {
  createBox: function(boxQuery){
    return axios.post("/api/box", boxQuery);
  },
-
+ 
+  getBoxId: function(postQuery){
+    console.log(postQuery)
+    return axios.get("../../api/checkBox/" + postQuery.pBox)
+  },
   // get posts from individual box page      ######BOX
   getPosts:function(boxId){
     return axios.get("../../api/posts/" + boxId);
@@ -37,6 +41,10 @@ export default {
   // create post for individual box page     ####### BOX/USERCREATE
   createPost: function(postQuery){
     return axios.post("/api/posts", postQuery);
+  },
+
+  getPostId: function(postTitle) {
+    return axios.get("../../api/checkPost/" + postTitle)
   },
 
   //delete post??                         ###### BOX
@@ -49,13 +57,10 @@ export default {
 
   createComment: function(query) {
     return axios.post("../../../api/saveComment", query)
-  },
+  }
  
   //create comment                         ###### POST
-  getBoxId: function(postQuery){
-    console.log(postQuery)
-    return axios.get("../../api/checkBox/" + postQuery.pBox)
-  }
+
   //delete comment?                       #######POST
  
 

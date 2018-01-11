@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { BroswerRouter as Router, Route, Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
 // import BoxPanel from '../../components/BoxPanel';
@@ -14,58 +14,55 @@ class Box extends Component {
     };
 
     componentDidMount() {
-        API.getCount()
-            .then(res => this.setState({ users: res.data.count }))
-            .catch(err => console.log(err));
-
         const boxTitle = {};
         boxTitle.pBox = this.props.match.params.title;
         console.log("boxid" + boxTitle.pBox);
-        API.getBoxId(boxTitle)
+        API.getBoxId(boxTitle)  //check if box exists, grab ID
             .then(res => {
-                console.log(res.data.id);
-                const boxId = res.data.id;
-                API.getPosts(boxId)
-                    .then(res => {
-                        console.log(res.data.posts);
-                        this.setState({ posts: res.data.posts })
-                    })
-                    .catch(err => console.log(err));
+                const boxId = res.data.id
+                if (!boxId) {  //if the title pushed to page doesn't exist redirect to err page
+                    this.props.history.push('/BoxNotFound');
+                } else {  // box exists so grab posts and usercount. 
 
+                    API.getPosts(boxId)
+                        .then(res => {
+                            console.log(res.data.posts);
+                            this.setState({ posts: res.data.posts })
+                        })
+                        .catch(err => console.log(err));
 
+                    API.getCount()
+                        .then(res => this.setState({ users: res.data.count }))
+                        .catch(err => console.log(err));    
+                } 
             })
             .catch(err => console.log(err));
-
-
     }
 
     render() {
         return (
-
             <section className="content">
-          
-        <div className="container">
-         <Sidebar userCount={this.state.users} />
-         <div className="container clean"> 
-            <h1> Forum: {this.props.match.params.title} </h1>
-            <div className="main-content">
-                {this.state.posts.map( (post, i) => (
-                    <Link className ="" to={"/Box/Post/" + post.title + "/" + post.id} key={i}>
-                        <PostPanel 
-                           key={post.id}
-                           id={post.id}
-                           createdAt={post.createdAt}
-                           content={post.content}
-                           title={post.title}
-                           author={post.authorUserId}
-                        />
-                    </Link>  
-                ))}
-             
-            </div>
-          </div>
-        </div>
-      </section>
+                <div className="container">
+                    <Sidebar userCount={this.state.users} />
+                        <div className="container clean"> 
+                            <h1> Forum: {this.props.match.params.title} </h1>
+                            <div className="main-content">
+                            {this.state.posts.map( (post, i) => (
+                                <Link className ="" to={"/Box/Post/" + post.title} key={i}>
+                                <PostPanel 
+                                    key={post.id}
+                                    id={post.id}
+                                    createdAt={post.createdAt}
+                                    content={post.content}
+                                    title={post.title}
+                                    author={post.authorUserId}
+                                />
+                                </Link>  
+                            ))}
+                            </div>
+                        </div>
+                </div>
+            </section>
         );
     }
 }
