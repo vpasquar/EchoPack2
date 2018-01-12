@@ -11,23 +11,32 @@ class Post extends Component {
         users: 0,
         comments: [],
         counter: 0,
-        reply: ""
+        reply: "",
+        postId:"",
+        key:0
     };
 
     componentDidMount() {
-        API.getCount()
-            .then(res => this.setState({ users: res.data.count }))
-            .catch(err => console.log(err));
+       
+        const { title } = this.props.match.params
 
-        const { id, title } = this.props.match.params
-        console.log("postid" + id)
+        API.getPostId(title)
+           .then(res => {
+                const postId = res.data.id
+                console.log("postId" + postId)
+                if (!postId) {
+                    this.props.history.push('./PostNotFound')
+                } else {
+                    this.setState({postId:postId})
+                    this.getComments(postId);
+                
+                     API.getCount()
+                    .then(res => this.setState({ users: res.data.count }))
+                    .catch(err => console.log(err));
 
-        API.getComments(id)
-            .then(res => {
-                console.log(res.data.comments);
-                this.setState({ comments: res.data.comments })
-            })
-            .catch(err => console.log(err));
+                }
+           })
+           .catch(err => console.log(err));  
     }
 
     handleInputChange = e => {
@@ -35,25 +44,34 @@ class Post extends Component {
         this.setState({
             [name]: value
         });
-    };
+    }
 
     handleFormSubmit = e => {
         e.preventDefault();
+        console.log("postId for comment" + this.state.postId);
         const query = {
-            postId: window.location.pathname.split("/").pop(),
-            content: this.state.reply
-        }
-        console.log(query);
-
+            postId: this.state.postId,
+            content:this.state.reply
+        };
         API.createComment(query)
-            .then(res => {
+           .then(res => {
                 this.setState({ reply: "" })
                 alert("comment added");
+                this.getComments(this.state.postId)
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
     };
+       
+    getComments = postId => {
+         API.getComments(postId)
+                    .then(res => {
+                        console.log("comments " + res.data.comments);
+                        this.setState({ comments: res.data.comments })
+                    })
+                    .catch(err => console.log(err));
+    }
 
     render() {
         return (

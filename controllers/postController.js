@@ -40,6 +40,7 @@ app.post("/api/posts/", function(req, res) {
     db.Post.create({
         BoxId: req.body.BoxId,
         UserId: 1,
+        //UserId:req.body.UserId
         title: req.body.title,
         content: req.body.content
     }).then(function(dbPost) {
@@ -47,6 +48,23 @@ app.post("/api/posts/", function(req, res) {
     });
 });
 
+
+app.get("/api/checkPost/:title", function(req, res) {
+    console.log("triggered single box");
+    console.log(req.params.title);
+    db.Post.findOne({
+        where: {
+            title: req.params.title
+        }
+    }).then(function(dbPost) {
+        // We have access to the Boxes as an argument inside of the callback function
+        console.log(dbPost);
+        res.send(dbPost);
+    }).catch(function(err) {
+        res.send(err);
+    })
+
+});
 // // DELETE route for deleting posts
 // app.delete("/api/posts/:id", function(req, res) {
 //     db.Post.destroy({
