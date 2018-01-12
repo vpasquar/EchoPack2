@@ -2,17 +2,20 @@
 
 .sidebar {
     width: 22.5%;
-    height: 100vh;
-    position: absolute;
-    right: 0px;
-    top: auto;
-    border-left: 1px solid #cdcdcd;
+    height: 100%;
+    float: right;
+    // border-left: 1px solid #cdcdcd;
     @media screen and (max-width: 768px) {
         width: 100%;
         position: relative;
         top: auto;
         right: auto;
         height: auto;
+    }
+    &:after{
+        content: '';
+        display: table;
+        clear:both;
     }
     .sidecontainer {
         padding: 15px 0px;

@@ -4,6 +4,7 @@ import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
 import CommentPanel from '../../components/CommentPanel';
 
+
 class Post extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
     state = {
@@ -57,40 +58,40 @@ class Post extends Component {
     render() {
         return (
 
-            <section className="content">
-          
+    <section className="content">      
         <div className="container">  
           <Sidebar userCount={this.state.users} />
-            <div className="main-content">
-            <div className="replyTo container clean">
-                <h1> Post Title: {this.props.match.params.title} </h1>
-                <textarea 
-                   rows="5" 
-                   cols="50" 
-                   name="reply"
-                   value={this.state.reply}
-                   onChange={this.handleInputChange}>
-                </textarea>
-                <button
-                   disabled = {!this.state.reply}
-                   onClick  = {this.handleFormSubmit}>
-                   Save
-                </button>  
-            </div> 
-            <div className="container clean">
-                {this.state.comments.map( (comment, i) => (
-                        <CommentPanel 
-                           key={comment.id}
-                           id={comment.id}
-                           createdAt={comment.createdAt}
-                           description={comment.content}
-                        /> 
-                ))}
+            <div className="main-content post">
+                <div className="replyTo container clean">
+                    <h1> Post Title: {this.props.match.params.title} </h1>
+                    <textarea 
+                       rows="5" 
+                       cols="50" 
+                       name="reply"
+                       value={this.state.reply}
+                       onChange={this.handleInputChange}>
+                    </textarea>
+                    <button
+                       disabled = {!this.state.reply}
+                       onClick  = {this.handleFormSubmit}>
+                       Save
+                    </button>  
+                </div> 
+                <div className="container clean">
+                    {this.state.comments.map( (comment, i) => (
+                        <div>
+                                <CommentPanel 
+                                   key={comment.id}
+                                   id={comment.id}
+                                   createdAt={comment.createdAt}
+                                   description={comment.content}
+                                   score={comment.score}
+
+                                /> 
+                            </div>
+                    ))}
+                </div>
             </div>
-                
-                
-            </div>
-         
         </div>
         </section>
         );

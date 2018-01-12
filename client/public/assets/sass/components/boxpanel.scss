@@ -7,4 +7,16 @@
     width: 100%;
     height: auto;
     border: 1px solid #cdcdcd;
+    transition: all .2s ease-in-out;
+    background: white;
+    &:hover{
+    	background: rgba($bl,.1);
+    	color: black;
+    	border: 1px solid $bl;
+    }
+    &.comment{
+        p{
+            font-size: 12px;
+        }
+    }
 }

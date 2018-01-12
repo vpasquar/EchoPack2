@@ -82,6 +82,17 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/api/Users/:id", function(req,res){
+    db.User.findOne({
+      where:{
+          id : req.params.id
+      }
+    }).then(function(dbUser){
+      console.log(dbUser);
+      res.send(dbUser);
+    }).catch(err => res.send(err));
+  })
+
 
 };
 

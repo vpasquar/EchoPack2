@@ -44,17 +44,21 @@ export default {
 
   //get comments for individual post         ##### POST
   getComments: function(postId) {
-    return axios.get("../../../api/comments/" + postId)
+    return axios.get("../../../api/comments/" + postId);
   },
 
   createComment: function(query) {
-    return axios.post("../../../api/saveComment", query)
+    return axios.post("../../../api/saveComment", query);
+  },
+
+  getUserName: function(authorId){
+    return axios.get("../../../api/Users/" + authorId);
   },
  
   //create comment                         ###### POST
   getBoxId: function(postQuery){
     console.log(postQuery)
-    return axios.get("../../api/checkBox/" + postQuery.pBox)
+    return axios.get("../../api/checkBox/" + postQuery.pBox);
   }
   //delete comment?                       #######POST
  
