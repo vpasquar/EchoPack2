@@ -14,7 +14,7 @@ class Post extends Component {
         counter: 0,
         reply: "",
         postId:"",
-        key:0
+        activeUser:""
     };
 
     componentDidMount() {
@@ -77,7 +77,7 @@ class Post extends Component {
     render() {
         return (
 <div>
-<Nav />
+<Nav active={this.state.activeUser} handleLogout={this.handleLogout}/>
     <section className="content">      
         <div className="container">  
           <Sidebar userCount={this.state.users} />

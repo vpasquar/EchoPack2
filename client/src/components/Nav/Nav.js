@@ -20,11 +20,18 @@ const Nav = props => (
                     Forum 1
                   </Link>
                 </li>*/}
+      {props.active === "" ? 
         <li className="login-item">
           <Link className="" to={"/login"}>
              Login/Signup
           </Link>   
-        </li>
+        </li> : 
+        <li className="login-item">
+           <a className="" onClick={props.handleLogout}>
+             Logout
+          </a>   
+        </li>}
+        
       </ul>
     </div>
   </nav>

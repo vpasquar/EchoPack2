@@ -2,106 +2,129 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
+import Nav from '../../components/Nav';
 
 class UserLogin extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
 
     state = {
-        signup:false,
-        fName:"",
-        lName:"",
-        uName:"",
-        eMail:"",
-        passW:"",
-        activeUser:""
+        signup: false,
+        fName: "",
+        lName: "",
+        uName: "",
+        eMail: "",
+        passW: "",
+        activeUser: ""
     };
+    componentWillMount() {
+        API.checkUser()
+            .then(res => {
+                if (res.data.user) {
 
-    
+                    console.log(res.data.user);
+                    this.setState({ activeUser: res.data.user.userName })
+                    //success, user exists do something
+                } else {
+
+                    console.log("user not logged in");
+                    //user not loggined in do something
+                }
+            })
+            .catch(err => console.log(err));
+    }
+
     componentDidMount() {
-      console.log("component mounted")
+        console.log("component mounted")
     };
 
     initializeState = () => { //for resetting forms once submitted.
         this.setState({
-            fName:"", lName:"", uName:"", eMail:"", passW:""
+            fName: "",
+            lName: "",
+            uName: "",
+            eMail: "",
+            passW: ""
         });
     }
 
-    setSignup = e => {    //for when the user wants to login or signup
+    setSignup = e => { //for when the user wants to login or signup
         e.preventDefault();
-        const {name, value} = e.target
+        const { name, value } = e.target
         if (name === "signup") {
             this.initializeState();
             this.setState({
-                signup:true
+                signup: true
             });
         } else {
             this.initializeState();
             this.setState({
-                signup:false
+                signup: false
             });
         };
     };
 
 
     handleInputChange = e => {
-        const {name, value} = e.target;
-        this.setState({ [name]: value });
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value });
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
         const query = {
-           fName: this.state.fName,
-           lName: this.state.lName,
-           username: this.state.uName,
-           eMail: this.state.eMail,
-           password: this.state.passW
-        }; 
+            fName: this.state.fName,
+            lName: this.state.lName,
+            username: this.state.uName,
+            eMail: this.state.eMail,
+            password: this.state.passW
+        };
 
         if (this.state.signup) {
             API.saveNewUser(query)
-            .then(res => {
-                this.initializeState();
-                this.setState({signup:false});
-                console.log(res);
-                alert("welcome to echopack")
-            })
-            .catch(err => {
-                console.log(err);
-            })
+                .then(res => {
+                    this.initializeState();
+                    this.setState({ signup: false });
+                    console.log(res);
+                    alert("welcome to echopack")
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         } else {
             console.log("logging in user with: " + query);
             API.loginUser(query)
-            .then(res => {
-                console.log("this is the res from original login statement" + res.data)
-                API.checkUser()
-                  .then(res=> {
-                    console.log(res.data.user)
-                    this.props.history.push("/")
-                  })
-                  .catch(err => {
-                    console.log(err)
-                  })
-                // redirect to what page? how do we check if logged in?
-                // this is where passport comes into play.
-            })
-            .catch(err => {
-                console.log(err);
-            })
+                .then(res => {
+                    console.log("this is the res from original login statement" + res.data)
+                    API.checkUser()
+                        .then(res => {
+                            console.log(res.data.user)
+                            this.props.history.push("/")
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        })
+                    // redirect to what page? how do we check if logged in?
+                    // this is where passport comes into play.
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         }
     }
 
     render() {
-        const {fName, lName, uName, eMail, passW} = this.state;
-        const loginEnabled = 
-              (uName.length > 0) &&
-              (passW.length > 0)  
-        const signupEnabled = 
-              (loginEnabled)     &&
-              (fName.length > 0) &&
-              (lName.length > 0)
+        const { fName, lName, uName, eMail, passW } = this.state;
+        const loginEnabled =
+            (uName.length > 0) &&
+            (passW.length > 0)
+        const signupEnabled =
+            (loginEnabled) &&
+            (fName.length > 0) &&
+            (lName.length > 0)
         return (
+            <div>
+            <Nav active={this.state.activeUser} handleLogout={this.handleLogout} />
             <div className="container">
                <div className="main-user-section">
                     <Sidebar userCount="0"  />
@@ -259,12 +282,9 @@ class UserLogin extends Component {
 
                       </div>  
                   </div> 
-
                </div>
-
-               
-            </div>   
-            
+            </div> <
+            /div>
         );
     }
 }

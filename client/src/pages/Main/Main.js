@@ -11,24 +11,28 @@ class Main extends Component {
         users: 0,
         boxes: [],
         counter: 0,
-        activeUser:""
+        activeUser: ""
     };
 
-    componentDidMount() {
+    componentWillMount() {
         API.checkUser()
-           .then(res => {
+            .then(res => {
                 if (res.data.user) {
 
                     console.log(res.data.user);
-                    this.setState({activeUser:res.data.user.userName})
+                    this.setState({ activeUser: res.data.user.userName })
                     //success, user exists do something
                 } else {
 
                     console.log("user not logged in");
                     //user not loggined in do something
                 }
-           })
-           .catch(err => console.log(err));
+            })
+            .catch(err => console.log(err));
+    }
+
+    componentDidMount() {
+
         API.getCount()
             .then(res => this.setState({ users: res.data.count }))
             .catch(err => console.log(err));
@@ -43,10 +47,19 @@ class Main extends Component {
             .catch(err => console.log(err));
     }
 
+    handleLogout = () => {
+        API.logoutUser()
+            .then(res => {
+                console.log(res.data);
+                this.setState({ activeUser: "" });
+            });
+
+    }
+
     render() {
         return (
             <div>
-    <Nav />
+    <Nav active={this.state.activeUser} handleLogout={this.handleLogout}/>
     <section className="content">  
     <div className="container">
         <Sidebar userCount={this.state.users} />

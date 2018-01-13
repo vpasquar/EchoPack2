@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../../utils/API';
-// import Sidebar from '../../components/Sidebar';
+import Nav from '../../components/Nav';
 
 class UserCreate extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
@@ -12,8 +12,19 @@ class UserCreate extends Component {
         pBox: "",
         pTitle: "",
         pContent: "",
-        cStatus: true
+        cStatus: true,
+        activeUser: ""
     };
+    componentWillMount() {
+        API.checkLogin()
+            .then(res => {
+                if (!res.data.user) {
+                    alert("ay buddy fuck off");
+                }
+                this.setState({ activeUser: res.data.user.userName });
+            })
+            .catch(err => console.log(err));
+    }
 
     componentDidMount() {
 
@@ -52,6 +63,7 @@ class UserCreate extends Component {
         const boxQuery = {
             forumTitle: this.state.bTitle,
             forumDescription: this.state.bDescription,
+            UserId: this.state.activeUser
         }
 
         const postQuery = {
@@ -98,7 +110,8 @@ class UserCreate extends Component {
     }
     render() {
         return (
-
+            <div>
+            <Nav active={this.state.activeUser} handleLogout={this.handleLogout} />
             <div className="container">
                <div className="main-user-section create">
 
@@ -229,7 +242,7 @@ class UserCreate extends Component {
                </div>
 
             </div>
-
+            </div>
         );
     }
 }
