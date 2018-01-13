@@ -12,7 +12,8 @@ class UserLogin extends Component {
         lName:"",
         uName:"",
         eMail:"",
-        passW:""
+        passW:"",
+        activeUser:""
     };
 
     
@@ -53,9 +54,9 @@ class UserLogin extends Component {
         const query = {
            fName: this.state.fName,
            lName: this.state.lName,
-           uName: this.state.uName,
+           username: this.state.uName,
            eMail: this.state.eMail,
-           passW: this.state.passW
+           password: this.state.passW
         }; 
 
         if (this.state.signup) {
@@ -70,8 +71,18 @@ class UserLogin extends Component {
                 console.log(err);
             })
         } else {
+            console.log("logging in user with: " + query);
             API.loginUser(query)
             .then(res => {
+                console.log("this is the res from original login statement" + res.data)
+                API.checkUser()
+                  .then(res=> {
+                    console.log(res.data.user)
+                    this.props.history.push("/")
+                  })
+                  .catch(err => {
+                    console.log(err)
+                  })
                 // redirect to what page? how do we check if logged in?
                 // this is where passport comes into play.
             })

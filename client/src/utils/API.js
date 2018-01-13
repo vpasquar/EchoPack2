@@ -23,6 +23,10 @@ export default {
   loginUser: function(query) {
     return axios.post("/api/login", query);
   },
+
+  checkUser: function() {
+    return axios.get("/api/logincheck");
+  },
   //login user
  // create box/forum             ######MAIN/USERCREATE
  createBox: function(boxQuery){

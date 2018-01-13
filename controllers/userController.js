@@ -13,13 +13,23 @@ module.exports = function(app) {
 
     app.post('/api/login',passport.authenticate('local'), function(req, res){
           
-          console.log("poop")
-          console.log(req.user);
+          console.log("req.user at api/login" + req.user);
           res.json(req.user);
 
         }
     );
+    
 
+    app.get("/api/logincheck", function(req,res) {
+
+       if (req.user) {
+        console.log("login check server side" + req.user);
+        let userObj = {
+          user:req.user
+        }
+        res.send(userObj);
+       }
+    })
     //
     // POST route for saving a new User
     app.post("/api/createUser", function(req, res) {
@@ -31,9 +41,9 @@ module.exports = function(app) {
         db.User.create({
                 firstName: req.body.fName,
                 lastName: req.body.lName,
-                userName: req.body.uName,
+                userName: req.body.username,
                 email: req.body.eMail,
-                password: req.body.passW
+                password: req.body.password
 
             }).then(function(dbUser) {
                 // We have access to the new todo as an argument inside of the callback function
