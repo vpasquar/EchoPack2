@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
 import BoxPanel from '../../components/BoxPanel';
+import Nav from '../../components/Nav';
 
 class Main extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
@@ -39,7 +40,8 @@ class Main extends Component {
 
     render() {
         return (
-    
+            <div>
+    <Nav />
     <section className="content">  
     <div className="container">
         <Sidebar userCount={this.state.users} />
@@ -63,6 +65,7 @@ class Main extends Component {
            
         </div>
       </section>
+      </div>
         );
     }
 }

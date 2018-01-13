@@ -4,6 +4,7 @@ import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
 // import BoxPanel from '../../components/BoxPanel';
 import PostPanel from '../../components/PostPanel';
+import Nav from '../../components/Nav'
 
 class Box extends Component {
     //state just includes the articles that will be stored once we contact our API (database)
@@ -41,6 +42,8 @@ class Box extends Component {
 
     render() {
         return (
+            <div>
+            <Nav />
             <section className="content">
                 <div className="container">
                     <Sidebar userCount={this.state.users} />
@@ -63,6 +66,7 @@ class Box extends Component {
                         </div>
                 </div>
             </section>
+            </div>
         );
     }
 }

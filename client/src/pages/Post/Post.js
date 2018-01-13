@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
 import CommentPanel from '../../components/CommentPanel';
+import Nav from '../../components/Nav';
 
 
 class Post extends Component {
@@ -75,7 +76,8 @@ class Post extends Component {
 
     render() {
         return (
-
+<div>
+<Nav />
     <section className="content">      
         <div className="container">  
           <Sidebar userCount={this.state.users} />
@@ -112,6 +114,7 @@ class Post extends Component {
             </div>
         </div>
         </section>
+        </div>
         );
     }
 }

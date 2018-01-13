@@ -11,7 +11,6 @@ import UserCreate from './pages/UserCreate';
 const App = () => (
   <Router>
   <div>
-      <Nav />
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/Box/:title/" component={Box} />
