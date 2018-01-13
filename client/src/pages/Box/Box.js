@@ -16,15 +16,31 @@ class Box extends Component {
     };
 
     componentDidMount() {
+        API.checkUser()
+            .then(res => {
+                if (res.data.user) {
+
+                    console.log(res.data.user);
+                    this.setState({ activeUser: res.data.user.userName })
+                    //success, user exists do something
+                } else {
+
+                    console.log("user not logged in");
+                    //user not loggined in do something
+                }
+            })
+            .catch(err => console.log(err));
+
+            
         const boxTitle = {};
         boxTitle.pBox = this.props.match.params.title;
         console.log("boxid" + boxTitle.pBox);
-        API.getBoxId(boxTitle)  //check if box exists, grab ID
+        API.getBoxId(boxTitle) //check if box exists, grab ID
             .then(res => {
                 const boxId = res.data.id
-                if (!boxId) {  //if the title pushed to page doesn't exist redirect to err page
+                if (!boxId) { //if the title pushed to page doesn't exist redirect to err page
                     this.props.history.push('/BoxNotFound');
-                } else {  // box exists so grab posts and usercount. 
+                } else { // box exists so grab posts and usercount. 
 
                     API.getPosts(boxId)
                         .then(res => {
@@ -35,8 +51,8 @@ class Box extends Component {
 
                     API.getCount()
                         .then(res => this.setState({ users: res.data.count }))
-                        .catch(err => console.log(err));    
-                } 
+                        .catch(err => console.log(err));
+                }
             })
             .catch(err => console.log(err));
     }

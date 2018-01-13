@@ -39,8 +39,7 @@ app.post("/api/posts/", function(req, res) {
     console.log(req.body.BoxId);
     db.Post.create({
         BoxId: req.body.BoxId,
-        UserId: 1,
-        //UserId:req.body.UserId
+        UserId:req.body.UserId,
         title: req.body.title,
         content: req.body.content
     }).then(function(dbPost) {

@@ -25,7 +25,10 @@ class UserCreate extends Component {
                 if (!res.data.user) {
                     alert("ay buddy fuck off");
                 }
-                this.setState({ activeUser: res.data.user.userName });
+                this.setState({ 
+                    activeUser: res.data.user.userName,
+                    UserId: res.data.user.id
+                });
             })
             .catch(err => console.log(err));
     }
@@ -63,13 +66,14 @@ class UserCreate extends Component {
         const boxQuery = {
             forumTitle: this.state.bTitle,
             forumDescription: this.state.bDescription,
-            UserId: this.state.activeUser
+            UserId: this.state.UserId
         }
 
         const postQuery = {
             pBox: this.state.pBox,
             title: this.state.pTitle,
-            content: this.state.pContent
+            content: this.state.pContent,
+            UserId: this.state.UserId
         }
 
         if (this.state.cStatus) {
