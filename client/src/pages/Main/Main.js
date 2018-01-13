@@ -17,8 +17,13 @@ class Main extends Component {
         API.checkUser()
            .then(res => {
                 if (res.data.user) {
+
+                    console.log(res.data.user);
+                    this.setState({activeUser:res.data.user.userName})
                     //success, user exists do something
                 } else {
+
+                    console.log("user not logged in");
                     //user not loggined in do something
                 }
            })

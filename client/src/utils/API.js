@@ -27,6 +27,10 @@ export default {
   checkUser: function() {
     return axios.get("/api/logincheck");
   },
+
+  logoutUser: function() {
+    return axios.get("api/logout");
+  },
   //login user
  // create box/forum             ######MAIN/USERCREATE
  createBox: function(boxQuery){

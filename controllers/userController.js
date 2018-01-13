@@ -30,6 +30,11 @@ module.exports = function(app) {
         res.send(userObj);
        }
     })
+
+    app.get("/api/logout", function(req,res) {
+      req.logout();
+      res.send("user logged out")
+    })
     //
     // POST route for saving a new User
     app.post("/api/createUser", function(req, res) {
