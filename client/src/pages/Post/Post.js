@@ -90,6 +90,14 @@ class Post extends Component {
                         this.setState({ comments: res.data.comments })
                     })
                     .catch(err => console.log(err));
+    };
+
+    getUserName = userId => {
+      API.getUserName(userId)
+              .then(res => {
+                  console.log(res.data)
+              })
+              .catch(err => console.log(err));
     }
 
     render() {
@@ -121,6 +129,7 @@ class Post extends Component {
                                 <CommentPanel 
                                    key={comment.id}
                                    id={comment.UserId}
+                                   userName={this.getUserName}
                                    createdAt={comment.createdAt}
                                    description={comment.content}
                                    score={comment.score}
