@@ -9,10 +9,20 @@ class Main extends Component {
     state = {
         users: 0,
         boxes: [],
-        counter: 0
+        counter: 0,
+        activeUser:""
     };
 
     componentDidMount() {
+        API.checkUser()
+           .then(res => {
+                if (res.data.user) {
+                    //success, user exists do something
+                } else {
+                    //user not loggined in do something
+                }
+           })
+           .catch(err => console.log(err));
         API.getCount()
             .then(res => this.setState({ users: res.data.count }))
             .catch(err => console.log(err));
