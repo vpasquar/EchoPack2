@@ -1,27 +1,36 @@
+@import '../variable-mixins/color';
+
 .sidebar {
     width: 22.5%;
-    height: 100vh;
+    height: 100%;
+    // float: right;
     position: absolute;
-    right: 25px;
-    top: 100px;
-    border: 1px solid #cdcdcd;
-    @media screen and (max-width: 768px){
+    right: 0;
+    top: 0;
+    // border-left: 1px solid #cdcdcd;
+    @media screen and (max-width: 768px) {
         width: 100%;
         position: relative;
         top: auto;
         right: auto;
         height: auto;
     }
-    .sidecontainer{
+    &:after{
+        content: '';
+        display: table;
+        clear:both;
+    }
+    .sidecontainer {
         padding: 15px 0px;
     }
-    a{
+    a {
         display: block;
-        width: 200px; 
+        width: 200px;
         margin: 0px auto;
+        max-width: 100%;
     }
     .create-btn {
-    	position: relative;
+        position: relative;
         margin: 0px auto;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -32,6 +41,11 @@
         width: 200px;
         text-align: center;
         cursor: pointer;
+        z-index: 1;
+        max-width: 100%;
+        &:hover {
+            background: white;
+        }
         &::before,
         &::after {
             box-sizing: inherit;
@@ -47,10 +61,9 @@
             margin: 0px auto;
             text-align: left;
         }
-    }
-    //Source: https://codepen.io/giana/pen/yYBpVY
+    } //Source: https://codepen.io/giana/pen/yYBpVY
     .draw {
-        transition: color 0.33s;
+        transition: color .5s ease .25s, background .4s ease;
 
         &::before,
         &::after {
@@ -80,16 +93,16 @@
         &:hover::before {
             border-top-color: white; // Make borders visible
             border-right-color: white;
-            transition: width 0.33s ease-out, // Width expands first
-            height 0.33s ease-out 0.33s; // And then height
+            transition: width 0.25s ease-out, // Width expands first
+            height 0.25s ease-out 0.25s; // And then height
         }
 
         &:hover::after {
             border-bottom-color: white; // Make borders visible
             border-left-color: white;
             transition: border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
-            width 0.33s ease-out 0.5s, // And then exanding width
-            height 0.33s ease-out 0.75s; // And finally height
+            width 0.25s ease-out 0.5s, // And then exanding width
+            height 0.25s ease-out 0.75s; // And finally height
         }
         &.meet {
 
@@ -109,8 +122,8 @@
                 border-bottom-color: $bl;
                 border-left-color: $bl;
                 transition: // Animate height first, then width
-                height 0.33s ease-out,
-                width 0.33s ease-out 0.33s;
+                height 0.25s ease-out,
+                width 0.25s ease-out 0.25s;
             }
         }
     }

@@ -111,7 +111,17 @@ class UserCreate extends Component {
 
     handleBoxSubmit = e => {
         e.preventDefault();
-    }
+    };
+
+    handleLogout = () => {
+        API.logoutUser()
+            .then(res => {
+                console.log(res.data);
+                this.setState({ activeUser: "" });
+            });
+
+    };
+    
     render() {
         return (
             <div>
