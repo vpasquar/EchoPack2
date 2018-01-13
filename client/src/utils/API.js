@@ -31,6 +31,10 @@ export default {
   logoutUser: function() {
     return axios.get("api/logout");
   },
+
+  searchUserId: function(){
+    return axios.get("api/searchUserId");
+  },
   //login user
  // create box/forum             ######MAIN/USERCREATE
  createBox: function(boxQuery){

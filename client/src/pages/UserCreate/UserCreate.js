@@ -16,7 +16,11 @@ class UserCreate extends Component {
         activeUser: ""
     };
     componentWillMount() {
-        API.checkLogin()
+
+    }
+
+    componentDidMount() {
+        API.checkUser()
             .then(res => {
                 if (!res.data.user) {
                     alert("ay buddy fuck off");
@@ -24,10 +28,6 @@ class UserCreate extends Component {
                 this.setState({ activeUser: res.data.user.userName });
             })
             .catch(err => console.log(err));
-    }
-
-    componentDidMount() {
-
     }
 
     handleInputChange = e => {

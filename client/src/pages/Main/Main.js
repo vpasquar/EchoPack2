@@ -15,6 +15,10 @@ class Main extends Component {
     };
 
     componentWillMount() {
+
+    }
+
+    componentDidMount() {
         API.checkUser()
             .then(res => {
                 if (res.data.user) {
@@ -29,10 +33,6 @@ class Main extends Component {
                 }
             })
             .catch(err => console.log(err));
-    }
-
-    componentDidMount() {
-
         API.getCount()
             .then(res => this.setState({ users: res.data.count }))
             .catch(err => console.log(err));
