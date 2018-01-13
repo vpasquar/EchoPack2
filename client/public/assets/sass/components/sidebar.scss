@@ -40,7 +40,7 @@
         width: 200px;
         text-align: center;
         cursor: pointer;
-
+        z-index: 1;
         &:hover {
             background: white;
         }

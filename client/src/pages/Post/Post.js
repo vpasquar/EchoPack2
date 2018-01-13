@@ -97,7 +97,7 @@ class Post extends Component {
                 </div> 
                 <div className="container clean">
                     {this.state.comments.map( (comment, i) => (
-                        <div>
+                        <div key={i}>
                                 <CommentPanel 
                                    key={comment.id}
                                    id={comment.id}
