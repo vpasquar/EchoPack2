@@ -13,8 +13,8 @@
         max-width: 600px;
         margin: 40px auto;
         border-radius: 4px;
-        box-shadow: 0 4px 10px 4px rgba(#39A0ED, .3);
-        border: 1px solid #39A0ED;
+        box-shadow: 0 4px 10px 4px rgba(#cdcdcd, .3);
+        border: 1px solid #cdcdcd;
         label {
             display: block;
         }
@@ -40,7 +40,7 @@
                 font-size: 20px;
                 text-align: center;
                 cursor: pointer;
-                border: 1.75px solid #39A0ED;
+                border: 1.75px solid #cdcdcd;
                 border-collapse: collapse;
                 border-radius: 1px;
                 transition: all .2s ease-in-out;
@@ -115,7 +115,7 @@
                 padding: 10px 15px;
                 -webkit-appearance: none;
                 background: white;
-                border: 2px solid #39A0ED;
+                border: 2px solid #cdcdcd;
                 border-radius: 1px;
                 transition: all .2s ease-in-out;
                 font-size: 16px;

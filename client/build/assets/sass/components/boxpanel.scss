@@ -1,9 +1,40 @@
+@import '../variable-mixins/color';
+
 .box-panel {
     position: relative;
     margin: 0px auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    width: 95%;
+    padding: 5px 20px;
+    width: 100%;
     height: auto;
     border: 1px solid #cdcdcd;
+    transition: all .2s ease-in-out;
+    background: white;
+    h2{
+        font-size: 34px;
+        padding: 5px 0px;
+        margin: 20px 0px;  
+    }
+    &:hover{
+    	background: rgba($bl,.1);
+    	color: black;
+    	border: 1px solid $bl;
+    }
+    p{
+        font-size: 14px;
+        span{
+            font-size:12px;
+            color: grey;
+            transition: .2s ease-in-out;
+            &:hover{
+                color: $drk-bl;
+            }
+        }
+    }
+    &.comment{
+        p{
+            font-size: 14px;
+        }
+    }
 }
