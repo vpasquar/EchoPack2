@@ -14,10 +14,27 @@ class Post extends Component {
         counter: 0,
         reply: "",
         postId:"",
-        activeUser:""
+        activeUser:"",
+        UserId:""
     };
 
     componentDidMount() {
+
+        API.checkUser()
+            .then(res => {
+                if (res.data.user) {
+
+                    console.log(res.data.user);
+                    this.setState({ activeUser: res.data.user.userName, 
+                    UserId:res.data.user.id })
+                    //success, user exists do something
+                } else {
+
+                    console.log("user not logged in");
+                    //user not loggined in do something
+                }
+            })
+            .catch(err => console.log(err));
        
         const { title } = this.props.match.params
 
@@ -52,7 +69,8 @@ class Post extends Component {
         console.log("postId for comment" + this.state.postId);
         const query = {
             postId: this.state.postId,
-            content:this.state.reply
+            content:this.state.reply,
+            UserId:this.state.UserId
         };
         API.createComment(query)
            .then(res => {
@@ -119,7 +137,7 @@ class Post extends Component {
                         <div key={i}>
                                 <CommentPanel 
                                    key={comment.id}
-                                   id={comment.id}
+                                   id={comment.UserId}
                                    userName={this.getUserName}
                                    createdAt={comment.createdAt}
                                    description={comment.content}

@@ -32,7 +32,7 @@ app.get("/api/comments/:postId", function(req,res) {
 app.post("/api/saveComment/", function(req, res) {
     db.Comment.create({
         PostId: req.body.postId,
-        UserId: 1,
+        UserId: req.body.UserId,
         authorUserId: 1,
         content: req.body.content,
         score: 0
