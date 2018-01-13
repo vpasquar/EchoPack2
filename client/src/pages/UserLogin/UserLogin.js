@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 import Sidebar from '../../components/Sidebar';
 import Nav from '../../components/Nav';
@@ -41,7 +41,8 @@ class UserLogin extends Component {
             lName: "",
             uName: "",
             eMail: "",
-            passW: ""
+            passW: "",
+            isLoggedIn: false
         });
     }
 
@@ -59,6 +60,15 @@ class UserLogin extends Component {
                 signup: false
             });
         };
+    };
+
+    handleLogout = () => {
+        API.logoutUser()
+            .then(res => {
+                console.log(res.data);
+                this.setState({ activeUser: "" });
+            });
+
     };
 
 
@@ -97,7 +107,9 @@ class UserLogin extends Component {
                     API.checkUser()
                         .then(res => {
                             console.log(res.data.user)
-                            this.props.history.push("/")
+                            this.setState({
+                                isLoggedIn: true
+                            })
                         })
                         .catch(err => {
                             console.log(err)
@@ -120,6 +132,10 @@ class UserLogin extends Component {
             (loginEnabled) &&
             (fName.length > 0) &&
             (lName.length > 0)
+
+        if (this.state.isLoggedIn) {
+            return <Redirect to="/"/>
+        }
         return (
             <div>
             <Nav active={this.state.activeUser} handleLogout={this.handleLogout} />

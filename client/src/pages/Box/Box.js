@@ -57,6 +57,16 @@ class Box extends Component {
             .catch(err => console.log(err));
     }
 
+
+    handleLogout = () => {
+        API.logoutUser()
+            .then(res => {
+                console.log(res.data);
+                this.setState({ activeUser: "" });
+            });
+
+    };
+
     render() {
         return (
             <div>
