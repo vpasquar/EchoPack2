@@ -10,16 +10,16 @@ const Nav = () => (
     </Link>
     <div className="links" id="navbarNav">
       <ul className="">
-        <li className="">
-          <Link className="" to="/Box">
-            Dead Link
-          </Link>
-        </li>
-        <li className="">
-          <Link className="" to={"/Box/1"}>
-            Forum 1
-          </Link>
-        </li>
+        {/*<li className="">
+                  <Link className="" to="/Box">
+                    Dead Link
+                  </Link>
+                </li>
+                <li className="">
+                  <Link className="" to={"/Box/1"}>
+                    Forum 1
+                  </Link>
+                </li>*/}
         <li className="login-item">
           <Link className="" to={"/login"}>
              Login/Signup
