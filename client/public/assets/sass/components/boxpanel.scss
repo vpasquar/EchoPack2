@@ -25,6 +25,11 @@
         font-size: 14px;
         span{
             font-size:12px;
+            color: grey;
+            transition: .2s ease-in-out;
+            &:hover{
+                color: $drk-bl;
+            }
         }
     }
     &.comment{
