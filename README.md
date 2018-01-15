@@ -16,9 +16,9 @@ ___
 
 + Node.js
 + Express.js
-+ Handlebars.js
++ React.js
 + HTML5/CSS(SASS)
 + MySQL(Sequelize ORM)
 ___
 
-To see the live site click [Here](https://echopack.herokuapp.com/)
+To see the live site click [Here](https://echopack2.herokuapp.com/)
