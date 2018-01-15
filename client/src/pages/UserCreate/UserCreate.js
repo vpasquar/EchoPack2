@@ -77,7 +77,9 @@ class UserCreate extends Component {
             UserId: this.state.UserId,
             userName: this.state.activeUser
         }
-
+           console.log("The following are queries sent to API");       
+           console.log(boxQuery)
+           console.log(postQuery)
         if (this.state.cStatus) {
             //Requesting Box Creation
             API.createBox(boxQuery)
