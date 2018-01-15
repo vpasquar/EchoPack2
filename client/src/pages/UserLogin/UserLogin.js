@@ -103,6 +103,7 @@ class UserLogin extends Component {
             console.log("logging in user with: " + query);
             API.loginUser(query)
                 .then(res => {
+                    console.log("after initial login");
                     API.checkUser()
                         .then(res => {
                             if (res.data.user) {
@@ -300,8 +301,8 @@ class UserLogin extends Component {
                       </div>  
                   </div> 
                </div>
-            </div> <
-            /div>
+            </div> 
+            </div>
         );
     }
 }
