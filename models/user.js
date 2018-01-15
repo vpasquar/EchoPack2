@@ -10,16 +10,16 @@ module.exports = function(sequelize, DataTypes) {
         },
         firstName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
-                len: [1, 20]
+                len: [0, 20]
             }
         },
         lastName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
-                len: [1, 20]
+                len: [0, 20]
             }
         },
         userName: {
@@ -40,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [6]
+                len: [4,10]
             }
         },
         score: DataTypes.INTEGER

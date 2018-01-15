@@ -133,9 +133,9 @@ class UserLogin extends Component {
             (uName.length > 0) &&
             (passW.length > 0)
         const signupEnabled =
-            (loginEnabled) &&
-            (fName.length > 0) &&
-            (lName.length > 0)
+            (loginEnabled)     &&
+            (eMail.length > 0) 
+            
 
         // if (this.state.isLoggedIn) {
         //     return <Redirect to="/"/>
@@ -175,7 +175,7 @@ class UserLogin extends Component {
                                         value={this.state.fName}
                                         onChange={this.handleInputChange}
                                         name="fName"
-                                        placeholder="First Name (required)"
+                                        placeholder="First Name (not required)"
                                         id="new-first"
                                      />
                                  </div>
@@ -188,7 +188,7 @@ class UserLogin extends Component {
                                          value={this.state.lName}
                                          onChange={this.handleInputChange}
                                          name="lName"
-                                         placeholder="Last Name (required)"
+                                         placeholder="Last Name (not required)"
                                          id="new-last" 
                                      />
                                  </div>
@@ -214,7 +214,7 @@ class UserLogin extends Component {
                                          value={this.state.eMail}
                                          onChange={this.handleInputChange}
                                          name="eMail"
-                                         placeholder="Email (not required)"
+                                         placeholder="Email (required)"
                                          id="new-email"
                                          type="email"
                                      />
