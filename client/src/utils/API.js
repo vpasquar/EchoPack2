@@ -29,7 +29,7 @@ export default {
   },
 
   logoutUser: function() {
-    return axios.get("api/logout");
+    return axios.get("../../api/logout");
   },
 
   searchUserId: function(){
