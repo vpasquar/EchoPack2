@@ -43,7 +43,7 @@ class Post extends Component {
                 const postId = res.data.id
                 console.log("postId" + postId)
                 if (!postId) {
-                    this.props.history.push('./PostNotFound')
+                    this.props.history.push('../../PostNotFound')
                 } else {
                     this.setState({postId:postId})
                     this.getComments(postId);
