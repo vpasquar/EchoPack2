@@ -8,7 +8,7 @@ ________________________
 [Mike](https://github.com/Mike-C25)   
 [Miguel](https://github.com/miguelf6022e23)   
 [Vin](https://github.com/vpasquar)    
-[Rafique](https://github.com/rafiquevahora)
+
 
 ___
 
