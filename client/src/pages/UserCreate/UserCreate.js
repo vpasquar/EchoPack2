@@ -181,7 +181,7 @@ class UserCreate extends Component {
                                  </div>
 
                                  <button 
-                                     // disabled = {!loginEnabled}
+                                     disabled = {!this.state.activeUser}
                                      onClick={this.handleFormSubmit}
                                      name="submitSignup"
                                      //type="submit" 
@@ -240,7 +240,7 @@ class UserCreate extends Component {
                                 </div>
                                 
                                 <button
-                                   // disabled={!loginEnabled}
+                                   disabled={!this.state.activeUser}
                                    onClick={this.handleFormSubmit}
                                    name="submitLogin"
                                    //type="submit" 
