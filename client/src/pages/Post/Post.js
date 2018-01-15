@@ -95,7 +95,7 @@ class Post extends Component {
     getUserName = userId => {
       API.getUserName(userId)
               .then(res => {
-                  console.log(res.data)
+                  console.log(res.data);
               })
               .catch(err => console.log(err));
     };
