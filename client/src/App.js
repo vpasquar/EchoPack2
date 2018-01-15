@@ -4,7 +4,7 @@ import Main from './pages/Main';
 import Box from './pages/Box';
 import Post from './pages/Post';
 import NoMatch from './pages/NoMatch';
-import Nav from './components/Nav';
+// import Nav from './components/Nav';
 import UserLogin from './pages/UserLogin';
 import UserCreate from './pages/UserCreate';
 

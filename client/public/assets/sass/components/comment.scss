@@ -1,0 +1,14 @@
+.voteblock{
+	position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px 10px;
+	.btn-upvote{
+		display: inline-block;
+		padding: 0px 5px;
+	}
+	.btn-downvote{
+		display: inline-block;
+		padding: 0px 5px;
+	}
+}

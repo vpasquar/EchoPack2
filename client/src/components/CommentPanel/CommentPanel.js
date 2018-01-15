@@ -4,10 +4,11 @@ import VoteBlock from '../../components/VoteBlock';
 
 const CommentPanel = props => (
     <div className="box-panel comment">
-    	<VoteBlock />
+    	
     	<p>By: {props.userName}</p>
     	<p>{props.description}</p>
     	<p>score: {props.score}</p>
+    	<VoteBlock />
 	</div>
 );
 
