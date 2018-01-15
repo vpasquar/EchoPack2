@@ -75,6 +75,7 @@ class Main extends Component {
                         description={box.description}
                         sentimentScore={box.sentimentScore}
                         title={box.title}
+                        userName={box.userName}
                       />
                     </Link>  
                       ))}

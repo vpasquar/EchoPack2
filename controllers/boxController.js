@@ -53,7 +53,8 @@ module.exports = function(app) {
                 title: req.body.forumTitle,
                 description: req.body.forumDescription,
                 // UserId:1
-                UserId:req.body.UserId
+                UserId:req.body.UserId,
+                userName:req.body.userName
                 // text: req.body.text,
                 // complete: req.body.complete
             }).then(function(dbBox) {

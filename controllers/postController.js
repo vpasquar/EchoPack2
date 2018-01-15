@@ -41,7 +41,8 @@ app.post("/api/posts/", function(req, res) {
         BoxId: req.body.BoxId,
         UserId:req.body.UserId,
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        userName: req.body.userName
     }).then(function(dbPost) {
         res.json(dbPost);
     });

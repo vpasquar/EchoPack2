@@ -33,6 +33,7 @@ app.post("/api/saveComment/", function(req, res) {
     db.Comment.create({
         PostId: req.body.postId,
         UserId: req.body.UserId,
+        userName: req.body.userName,
         authorUserId: 1,
         content: req.body.content,
         score: 0

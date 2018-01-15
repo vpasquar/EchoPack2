@@ -3,7 +3,7 @@ import Nav from '../../components/Nav';
 
 const NoMatch = () =>
           <div>
-          <Nav active={this.state.activeUser} handleLogout={this.handleLogout}/>
+          <Nav active="" handleLogout=""/>
           <h1>404 Page Not Found</h1>
           <h1>
             <span role="img" aria-label="Face With Rolling Eyes Emoji">

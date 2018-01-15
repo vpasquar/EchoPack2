@@ -103,13 +103,17 @@ class UserLogin extends Component {
             console.log("logging in user with: " + query);
             API.loginUser(query)
                 .then(res => {
-                    console.log("this is the res from original login statement" + res.data)
+                    console.log("after initial login");
                     API.checkUser()
                         .then(res => {
-                            console.log(res.data.user)
-                            this.setState({
-                                isLoggedIn: true
-                            })
+                            if (res.data.user) {
+                                this.setState({
+                                    isLoggedIn: true
+                                })
+                                this.props.history.push('/')
+                            } else {
+                                alert("user not yet signed in")
+                            }
                         })
                         .catch(err => {
                             console.log(err)
@@ -133,9 +137,9 @@ class UserLogin extends Component {
             (fName.length > 0) &&
             (lName.length > 0)
 
-        if (this.state.isLoggedIn) {
-            return <Redirect to="/"/>
-        }
+        // if (this.state.isLoggedIn) {
+        //     return <Redirect to="/"/>
+        // }
         return (
             <div>
             <Nav active={this.state.activeUser} handleLogout={this.handleLogout} />
@@ -297,8 +301,8 @@ class UserLogin extends Component {
                       </div>  
                   </div> 
                </div>
-            </div> <
-            /div>
+            </div> 
+            </div>
         );
     }
 }

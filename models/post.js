@@ -18,7 +18,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1, 1000]
     },
-    authorUserId:  DataTypes.STRING, // Needed? Redundant? 
+    authorUserId:  DataTypes.STRING,
+    userName: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      len: [1,30]
+    }, // Needed? Redundant? 
     score:  DataTypes.INTEGER,
     sentimentScore: DataTypes.INTEGER,
     Date: DataTypes.DATE

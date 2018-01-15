@@ -23,7 +23,7 @@ class UserCreate extends Component {
         API.checkUser()
             .then(res => {
                 if (!res.data.user) {
-                    alert("ay buddy fuck off");
+                    alert(" please login before adding content");
                 }
                 this.setState({ 
                     activeUser: res.data.user.userName,
@@ -66,16 +66,20 @@ class UserCreate extends Component {
         const boxQuery = {
             forumTitle: this.state.bTitle,
             forumDescription: this.state.bDescription,
-            UserId: this.state.UserId
+            UserId: this.state.UserId,
+            userName: this.state.activeUser
         }
 
         const postQuery = {
             pBox: this.state.pBox,
             title: this.state.pTitle,
             content: this.state.pContent,
-            UserId: this.state.UserId
+            UserId: this.state.UserId,
+            userName: this.state.activeUser
         }
-
+           console.log("The following are queries sent to API");       
+           console.log(boxQuery)
+           console.log(postQuery)
         if (this.state.cStatus) {
             //Requesting Box Creation
             API.createBox(boxQuery)
@@ -177,7 +181,7 @@ class UserCreate extends Component {
                                  </div>
 
                                  <button 
-                                     // disabled = {!loginEnabled}
+                                     disabled = {!this.state.activeUser}
                                      onClick={this.handleFormSubmit}
                                      name="submitSignup"
                                      //type="submit" 
@@ -236,7 +240,7 @@ class UserCreate extends Component {
                                 </div>
                                 
                                 <button
-                                   // disabled={!loginEnabled}
+                                   disabled={!this.state.activeUser}
                                    onClick={this.handleFormSubmit}
                                    name="submitLogin"
                                    //type="submit" 
