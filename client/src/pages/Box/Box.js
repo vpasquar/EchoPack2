@@ -77,18 +77,20 @@ class Box extends Component {
                         <div className="container clean"> 
                             <h1> Forum: {this.props.match.params.title} </h1>
                             <div className="main-content">
-                            {this.state.posts.map( (post, i) => (
-                                <Link className ="" to={"/Box/Post/" + post.title} key={i}>
-                                <PostPanel 
-                                    key={post.id}
-                                    id={post.id}
-                                    createdAt={post.createdAt}
-                                    content={post.content}
-                                    title={post.title}
-                                    author={post.authorUserId}
-                                />
-                                </Link>  
-                            ))}
+                            
+                                {this.state.posts.map( (post, i) => (
+                                    <Link className ="" to={"/Box/Post/" + post.title} key={i}>
+                                    <PostPanel 
+                                        key={post.id}
+                                        id={post.id}
+                                        createdAt={post.createdAt}
+                                        content={post.content}
+                                        title={post.title}
+                                        author={post.userName}
+                                    />
+                                    </Link>  
+                                ))}
+                          
                             </div>
                         </div>
                 </div>

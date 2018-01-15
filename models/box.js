@@ -18,6 +18,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1, 500]
     },
+    userName: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      len: [1,30]
+    },
     sentimentScore: DataTypes.INTEGER,
     Date: DataTypes.DATE
   }

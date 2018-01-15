@@ -103,7 +103,6 @@ class UserLogin extends Component {
             console.log("logging in user with: " + query);
             API.loginUser(query)
                 .then(res => {
-                    console.log("this is the res from original login statement" + res.data)
                     API.checkUser()
                         .then(res => {
                             console.log(res.data.user)

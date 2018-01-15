@@ -29,7 +29,7 @@ class Post extends Component {
                     UserId:res.data.user.id })
                     //success, user exists do something
                 } else {
-
+                    alert("please login before posting comments!")
                     console.log("user not logged in");
                     //user not loggined in do something
                 }
@@ -70,7 +70,8 @@ class Post extends Component {
         const query = {
             postId: this.state.postId,
             content:this.state.reply,
-            UserId:this.state.UserId
+            UserId:this.state.UserId,
+            userName:this.state.activeUser
         };
         API.createComment(query)
            .then(res => {
@@ -86,7 +87,7 @@ class Post extends Component {
     getComments = postId => {
          API.getComments(postId)
                     .then(res => {
-                        console.log("comments " + res.data.comments);
+                        console.log(res.data.comments);
                         this.setState({ comments: res.data.comments })
                     })
                     .catch(err => console.log(err));
@@ -127,7 +128,7 @@ class Post extends Component {
                        onChange={this.handleInputChange}>
                     </textarea>
                     <button
-                       disabled = {!this.state.reply}
+                       disabled = {!this.state.reply && !this.state.activeUser}
                        onClick  = {this.handleFormSubmit}>
                        Save
                     </button>  
@@ -136,9 +137,7 @@ class Post extends Component {
                     {this.state.comments.map( (comment, i) => (
                         <div key={i}>
                                 <CommentPanel 
-                                   key={comment.id}
-                                   id={comment.UserId}
-                                   userName={this.getUserName}
+                                   userName={comment.userName}
                                    createdAt={comment.createdAt}
                                    description={comment.content}
                                    score={comment.score}

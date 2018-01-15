@@ -13,6 +13,11 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     },
     authorUserId:  DataTypes.STRING,
+    userName: {
+      type: DataTypes.STRING,
+      allowNull:false,
+      len: [1,30]
+    },
     score:  DataTypes.INTEGER,
     sentimentScore: DataTypes.INTEGER,
     Date: DataTypes.DATE
