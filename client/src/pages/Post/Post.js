@@ -66,7 +66,7 @@ class Post extends Component {
         this.setState({
             [name]: value
         });
-    }
+    };
 
     handleFormSubmit = e => {
         e.preventDefault();

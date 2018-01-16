@@ -281,7 +281,7 @@ class UserLogin extends Component {
                                     />
                                 </div>
                           
-                                <p className="forgot"><a href="#">Forgot Password?</a></p>
+                                <p className="forgot"><a href="/">Forgot Password?</a></p>
                           
                                 <button
                                    disabled={!loginEnabled}

@@ -43,11 +43,7 @@ export default {
  getBoxInfo: function(bId){
     return axios.get("/api/boxinfo/" + bId);
  },
- 
-  getBoxId: function(postQuery){
-    // console.log(postQuery)
-    return axios.get("../../api/checkBox/" + postQuery.pBox)
-  },
+
   // get posts from individual box page      ######BOX
   getPosts:function(boxId){
     return axios.get("../../api/posts/" + boxId);

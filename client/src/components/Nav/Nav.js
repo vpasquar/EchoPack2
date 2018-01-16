@@ -17,9 +17,9 @@ const Nav = props => (
           </Link>   
         </li> : 
         <li className="login-item">
-           <a className="" onClick={props.handleLogout}>
+           <Link to={"/"} className="" onClick={props.handleLogout}>
              Logout
-          </a>   
+          </Link>   
         </li>}
         
       </ul>

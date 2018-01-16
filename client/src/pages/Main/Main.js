@@ -27,12 +27,13 @@ class Main extends Component {
                     this.setState({ activeUser: res.data.user.userName })
                     //success, user exists do something
                 } else {
-
+                    
                     console.log("user not logged in");
                     //user not loggined in do something
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => this.setState({errorLog: err}));
+
         API.getCount()
             .then(res => this.setState({ users: res.data.count }))
             .catch(err => console.log(err));
