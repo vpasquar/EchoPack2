@@ -75,7 +75,7 @@ class Box extends Component {
                 <div className="container">
                     <Sidebar userCount={this.state.users} />
                         <div className="container clean"> 
-                            <h1> Forum: {this.props.match.params.title} </h1>
+                            <h1> {this.props.match.params.title} </h1>
                             <div className="main-content">
                             
                                 {this.state.posts.map( (post, i) => (

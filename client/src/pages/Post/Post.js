@@ -119,7 +119,7 @@ class Post extends Component {
           <Sidebar userCount={this.state.users} />
             <div className="main-content post">
                 <div className="replyTo container clean">
-                    <h1> Post Title: {this.props.match.params.title} </h1>
+                    <h1>{this.props.match.params.title} </h1>
                     <textarea 
                        rows="5" 
                        cols="50" 
