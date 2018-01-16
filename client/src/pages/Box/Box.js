@@ -31,7 +31,7 @@ class Box extends Component {
             })
             .catch(err => console.log(err));
 
-            
+
         const boxTitle = {};
         boxTitle.pBox = this.props.match.params.title;
         console.log("boxid" + boxTitle.pBox);
@@ -51,6 +51,13 @@ class Box extends Component {
 
                     API.getCount()
                         .then(res => this.setState({ users: res.data.count }))
+                        .catch(err => console.log(err));
+
+                    API.getBoxInfo(boxId)
+                        .then(res => {
+                            console.log(res.data);
+                            this.setState({ box: res.data });
+                        })
                         .catch(err => console.log(err));
                 }
             })
@@ -75,9 +82,10 @@ class Box extends Component {
                 <div className="container">
                     <Sidebar userCount={this.state.users} />
                         <div className="container clean"> 
-                            <h1> {this.props.match.params.title} </h1>
-                            <div className="main-content">
                             
+                            <div className="main-content">
+                            <h1> {this.props.match.params.title} </h1>
+                            {this.state.box ? <h4>{this.state.box.description}</h4> : ''}
                                 {this.state.posts.map( (post, i) => (
                                     <Link className ="" to={"/Box/Post/" + post.title} key={i}>
                                     <PostPanel 

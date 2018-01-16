@@ -40,14 +40,20 @@ export default {
  createBox: function(boxQuery){
    return axios.post("/api/box", boxQuery);
  },
+ getBoxInfo: function(bId){
+    return axios.get("/api/boxinfo/" + bId);
+ },
  
   getBoxId: function(postQuery){
-    console.log(postQuery)
+    // console.log(postQuery)
     return axios.get("../../api/checkBox/" + postQuery.pBox)
   },
   // get posts from individual box page      ######BOX
   getPosts:function(boxId){
     return axios.get("../../api/posts/" + boxId);
+  },
+  getPostInfo: function(pId){
+    return axios.get("../../api/postinfo/" + pId);
   },
 
   // create post for individual box page     ####### BOX/USERCREATE
@@ -77,7 +83,7 @@ export default {
  
   //create comment                         ###### POST
   getBoxId: function(postQuery){
-    console.log(postQuery)
+    // console.log(postQuery)
     return axios.get("../../api/checkBox/" + postQuery.pBox);
   }
 

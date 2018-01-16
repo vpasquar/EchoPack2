@@ -52,6 +52,10 @@ class Post extends Component {
                     .then(res => this.setState({ users: res.data.count }))
                     .catch(err => console.log(err));
 
+                    API.getPostInfo(postId)
+                    .then(res => this.setState({post: res.data}))
+                    .catch(err => console.log(err));
+
                 }
            })
            .catch(err => console.log(err));  
@@ -120,6 +124,7 @@ class Post extends Component {
             <div className="main-content post">
                 <div className="replyTo container clean">
                     <h1>{this.props.match.params.title} </h1>
+                    {this.state.post ? <h4>{this.state.post.content}</h4> : ''}
                     <textarea 
                        rows="5" 
                        cols="50" 

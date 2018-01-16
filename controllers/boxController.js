@@ -37,7 +37,18 @@ module.exports = function(app) {
             });
         }
     })
-  
+
+    //GET route for single box info
+
+    app.get("/api/boxinfo/:id", function(req, res) {
+        db.Box.findOne({
+            where:{
+                id: req.params.id
+            }
+        }).then(function(singleBox){
+            res.json(singleBox);
+        });
+    });
 
 
     // POST route for saving a new forum
@@ -53,8 +64,8 @@ module.exports = function(app) {
                 title: req.body.forumTitle,
                 description: req.body.forumDescription,
                 // UserId:1
-                UserId:req.body.UserId,
-                userName:req.body.userName
+                UserId: req.body.UserId,
+                userName: req.body.userName
                 // text: req.body.text,
                 // complete: req.body.complete
             }).then(function(dbBox) {

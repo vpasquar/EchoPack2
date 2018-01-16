@@ -32,6 +32,15 @@ app.get("/api/posts/:boxId", function(req, res) {
 });
 
 
+app.get("/api/postinfo/:id", function(req,res) {
+    db.Post.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(onePostInfo){
+        res.json(onePostInfo);
+    });
+})
 
 
 // POST route for saving a new post
