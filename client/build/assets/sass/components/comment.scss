@@ -1,0 +1,32 @@
+.box-panel {
+    &.comment {
+    	.header{
+    		font-size: 10px;
+    		margin-bottom: 2px;
+    		font-weight: bold;
+    		color: $drk-bl;
+    	}
+    	.body{
+    		font-size: 15px;
+    		margin: 0px 0px 5px 0px;
+    	}
+    	.score{
+    		font-size: 10px;
+    	}
+        .voteblock {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 5px 10px;
+            font-size: 10px;
+            .btn-upvote {
+                display: inline-block;
+                padding: 0px 5px;
+            }
+            .btn-downvote {
+                display: inline-block;
+                padding: 0px 5px;
+            }
+        }
+    }
+}

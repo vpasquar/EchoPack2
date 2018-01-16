@@ -9,6 +9,7 @@
 @import './components/boxpanel';
 @import './components/userauth';
 @import './components/postpage';
+@import './components/comment';
 
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Open+Sans|Sarala');
 
@@ -45,6 +46,6 @@ body {
 }
 
 .container{
-    margin: 0px 15px;
+    margin: 0px 10px;
     position: relative;
 }
