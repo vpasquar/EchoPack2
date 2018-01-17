@@ -32,7 +32,7 @@ class UserLogin extends Component {
     // }
 
     componentDidMount() {
-        console.log("component mounted")
+        // console.log("component mounted")
     };
 
     initializeState = () => { //for resetting forms once submitted.
@@ -65,7 +65,7 @@ class UserLogin extends Component {
     handleLogout = () => {
         API.logoutUser()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({ activeUser: "" });
             });
 
@@ -93,17 +93,17 @@ class UserLogin extends Component {
                 .then(res => {
                     this.initializeState();
                     this.setState({ signup: false });
-                    console.log(res);
+                    // console.log(res);
                     alert("welcome to echopack")
                 })
                 .catch(err => {
                     console.log(err);
                 })
         } else {
-            console.log("logging in user with: " + query);
+            // console.log("logging in user with: " + query);
             API.loginUser(query)
                 .then(res => {
-                    console.log("after initial login");
+                    // console.log("after initial login");
                     API.checkUser()
                         .then(res => {
                             if (res.data.user) {

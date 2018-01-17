@@ -48,7 +48,7 @@ router.post("/api/sentiment", function(req, res) {
             const sentiment = {
                 score: tSent
             }
-            console.log(JSON.stringify(response, null, 2));
+            // console.log(JSON.stringify(response, null, 2));
             res.json(sentiment);
         }
     });

@@ -78,15 +78,16 @@ class Post extends Component {
             postId: this.state.postId,
             content: this.state.reply,
             UserId: this.state.UserId,
-            userName: this.state.activeUser
+            userName: this.state.activeUser,
+            sentiment: 0
         };
         API.getSentiment(query)
             .then(res => {
                 // console.log(res.data);
                 let senT = res.data;
-                // console.log(senT);
-                query.sentiment = senT.sentiment;
-                // console.log(query);
+                console.log(senT);
+                query.sentiment = senT.score;
+                console.log(query);
                 API.createComment(query)
                     .then(res => {
                         this.setState({ reply: "" })
