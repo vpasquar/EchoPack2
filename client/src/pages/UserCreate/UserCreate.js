@@ -22,16 +22,16 @@ class UserCreate extends Component {
     componentDidMount() {
         API.checkUser()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.user) {
-                   
-                }else{
-                     alert("please login before adding content");
+                    this.setState({
+                        activeUser: res.data.user.userName,
+                        UserId: res.data.user.id
+                    });
+                } else {
+                    alert("please login before adding content");
                 }
-                this.setState({ 
-                    activeUser: res.data.user.userName,
-                    UserId: res.data.user.id
-                });
+
             })
             .catch(err => console.log(err));
     }
@@ -80,15 +80,15 @@ class UserCreate extends Component {
             UserId: this.state.UserId,
             userName: this.state.activeUser
         }
-           // console.log("The following are queries sent to API");       
-           // console.log(boxQuery)
-           // console.log(postQuery)
+        // console.log("The following are queries sent to API");       
+        // console.log(boxQuery)
+        // console.log(postQuery)
         if (this.state.cStatus) {
             //Requesting Box Creation
             API.createBox(boxQuery)
                 .then(res => {
                     this.resetState();
-                    console.log(res);
+                    // console.log(res);
                 })
                 .catch(err => {
                     console.log(err);
@@ -97,14 +97,15 @@ class UserCreate extends Component {
             //Requesting Post Creation
             // console.log("I've triggered...Post");
             // console.log(`Searching for ID of Box...`);
+
             API.getBoxId(postQuery)
                 .then(res => {
                     postQuery.BoxId = res.data.id;
-                    console.log(`Posting in Box ${postQuery.pBox} with an ID of ${postQuery.BoxId}`);
+                    // console.log(`Posting in Box ${postQuery.pBox} with an ID of ${postQuery.BoxId}`);
                     API.createPost(postQuery)
                         .then(res => {
                             this.resetState();
-                            console.log(res);
+                            // console.log(res);
                         })
                         .catch(err => {
                             console.log(err);
@@ -123,12 +124,12 @@ class UserCreate extends Component {
     handleLogout = () => {
         API.logoutUser()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({ activeUser: "" });
             });
 
     };
-    
+
     render() {
         return (
             <div>
@@ -262,8 +263,8 @@ class UserCreate extends Component {
 
                </div>
 
-            </div>
-            </div>
+            </div> <
+            /div>
         );
     }
 }

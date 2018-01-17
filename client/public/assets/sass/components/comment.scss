@@ -1,39 +1,74 @@
 @import '../variable-mixins/color';
+.container {
+    .box-panel {
+        &.comment {
 
-.box-panel {
-    &.comment {
-    	.header{
-    		font-size: 10px;
-    		margin-bottom: 2px;
-    		font-weight: bold;
-    		color: $drk-bl;
-            display: inline-block;
-            transition: all .2s ease-in-out;
-            &:hover{
-                color: $r;
-            }
-
-    	}
-    	.body{
-    		font-size: 15px;
-    		margin: 0px 0px 5px 0px;
-    	}
-    	.score{
-    		font-size: 10px;
-    	}
-        .voteblock {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            padding: 5px 10px;
-            font-size: 10px;
-            .btn-upvote {
+            .header {
+                font-size: 10px;
+                margin-bottom: 2px;
+                font-weight: bold;
+                color: $drk-bl;
                 display: inline-block;
-                padding: 0px 5px;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    color: $r;
+                }
             }
-            .btn-downvote {
-                display: inline-block;
-                padding: 0px 5px;
+            .body {
+                font-size: 15px;
+                margin: 0px 0px 5px 0px;
+            }
+            .score {
+                font-size: 10px;
+            }
+            .voteblock {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                padding: 5px 10px;
+                font-size: 10px;
+                .btn-upvote {
+                    display: inline-block;
+                    padding: 0px 5px;
+                }
+                .btn-downvote {
+                    display: inline-block;
+                    padding: 0px 5px;
+                }
+            }
+        }
+    }
+    &.active {
+        .box-panel {
+            &.comment {
+                background: rgba(black, .05);
+                &.positiveu {
+                    background: rgba($bl, .9);
+                    color: white;
+                }
+                &.positivemu {
+                    background: rgba($bl, .65);
+                    color: white;
+                }
+                &.positivemd {
+                    background: rgba($bl, .45)
+                }
+                &.positived {
+                    background: rgba($bl, .1);
+                }
+                &.negativeu {
+                    background: rgba($r, .9);
+                    color: white;
+                }
+                &.negativemu {
+                    background: rgba($r, .65);
+                }
+                &.negativemd {
+                    background: rgba($r, .45);
+                }
+                &.negatived {
+                    background: rgba($r, .1);
+                }
             }
         }
     }

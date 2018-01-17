@@ -1,4 +1,5 @@
 var express = require("express");
+const env = require('dotenv/config')
 
 var router = express.Router();
 
@@ -11,38 +12,48 @@ var natural_language_understanding = new NaturalLanguageUnderstandingV1({
 });
 
 
-router.get("/api/box/sentiment", function(req, res) {
+router.post("/api/sentiment", function(req, res) {
+    console.log(req.body.content);
+
     var parameters = {
-        'url': 'echopack2.herokuapp.com/api/',
+        'text': req.body.content,
         'features': {
-            'sentiment': {
-                'targets': [
-                    
-                ]
+            'entities': {
+                'sentiment': true,
+                'limit': 5
+            },
+            'keywords': {
+                'emotion': true,
+                'sentiment': true,
+                'limit': 5
             }
         }
-    };
+    }
+
+
+    natural_language_understanding.analyze(parameters, function(err, response) {
+        if (err) {
+
+            console.log('error:', err);
+        } else {
+            let scores = [];
+
+            for (v in response.keywords) {
+                scores.push(response.keywords[v].sentiment.score);
+            }
+            const reducer = (acc, i) => acc + i;
+
+            const tSent = scores.reduce(reducer);
+
+            const sentiment = {
+                score: tSent
+            }
+            console.log(JSON.stringify(response, null, 2));
+            res.json(sentiment);
+        }
+    });
 })
 
-
-
-var parameters = {
-    'url': 'www.wsj.com/news/markets',
-    'features': {
-        'sentiment': {
-            'targets': [
-                'stocks'
-            ]
-        }
-    }
-};
-
-natural_language_understanding.analyze(parameters, function(err, response) {
-    if (err)
-        console.log('error:', err);
-    else
-        console.log(JSON.stringify(response, null, 2));
-});
 
 
 module.exports = router;

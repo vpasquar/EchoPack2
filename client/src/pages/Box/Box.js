@@ -20,7 +20,7 @@ class Box extends Component {
             .then(res => {
                 if (res.data.user) {
 
-                    console.log(res.data.user);
+                    // console.log(res.data.user);
                     this.setState({ activeUser: res.data.user.userName })
                     //success, user exists do something
                 } else {
@@ -34,7 +34,7 @@ class Box extends Component {
 
         const boxTitle = {};
         boxTitle.pBox = this.props.match.params.title;
-        console.log("boxid" + boxTitle.pBox);
+        // console.log("boxid" + boxTitle.pBox);
         API.getBoxId(boxTitle) //check if box exists, grab ID
             .then(res => {
                 const boxId = res.data.id
@@ -44,7 +44,7 @@ class Box extends Component {
 
                     API.getPosts(boxId)
                         .then(res => {
-                            console.log(res.data.posts);
+                            // console.log(res.data.posts);
                             this.setState({ posts: res.data.posts })
                         })
                         .catch(err => console.log(err));
@@ -55,7 +55,7 @@ class Box extends Component {
 
                     API.getBoxInfo(boxId)
                         .then(res => {
-                            console.log(res.data);
+                            // console.log(res.data);
                             this.setState({ box: res.data });
                         })
                         .catch(err => console.log(err));
@@ -68,7 +68,7 @@ class Box extends Component {
     handleLogout = () => {
         API.logoutUser()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({ activeUser: "" });
             });
 

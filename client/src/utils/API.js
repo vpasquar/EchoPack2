@@ -4,87 +4,92 @@ export default {
 
 
 
-  //user count
-  getCount: function(){
-    return axios.get("/api/usercount");
-  },
- 
-  // get boxes/forums(main page) ######MAIN
+    //user count
+    getCount: function() {
+        return axios.get("/api/usercount");
+    },
 
-  getBoxMain: function(){
-    return axios.get("/api/home");
-  },
- 
-   //create user
-  saveNewUser: function(query) {
-    return axios.post("/api/createUser", query);
-  },
+    // get boxes/forums(main page) ######MAIN
 
-  loginUser: function(query) {
-    return axios.post("/api/login", query);
-  },
+    getBoxMain: function() {
+        return axios.get("/api/home");
+    },
 
-  checkUser: function() {
-    return axios.get("/api/logincheck");
-  },
+    //create user
+    saveNewUser: function(query) {
+        return axios.post("/api/createUser", query);
+    },
 
-  logoutUser: function() {
-    return axios.get("../../api/logout");
-  },
+    loginUser: function(query) {
+        return axios.post("/api/login", query);
+    },
 
-  searchUserId: function(){
-    return axios.get("api/searchUserId");
-  },
-  //login user
- // create box/forum             ######MAIN/USERCREATE
- createBox: function(boxQuery){
-   return axios.post("/api/box", boxQuery);
- },
- getBoxInfo: function(bId){
-    return axios.get("/api/boxinfo/" + bId);
- },
+    checkUser: function() {
+        return axios.get("/api/logincheck");
+    },
 
-  // get posts from individual box page      ######BOX
-  getPosts:function(boxId){
-    return axios.get("../../api/posts/" + boxId);
-  },
-  getPostInfo: function(pId){
-    return axios.get("../../api/postinfo/" + pId);
-  },
+    logoutUser: function() {
+        return axios.get("../../api/logout");
+    },
 
-  // create post for individual box page     ####### BOX/USERCREATE
-  createPost: function(postQuery){
-    return axios.post("/api/posts", postQuery);
-  },
+    searchUserId: function() {
+        return axios.get("api/searchUserId");
+    },
+    //login user
+    // create box/forum             ######MAIN/USERCREATE
+    createBox: function(boxQuery) {
+        return axios.post("/api/box", boxQuery);
+    },
+    getBoxInfo: function(bId) {
+        return axios.get("/api/boxinfo/" + bId);
+    },
 
-  getPostId: function(postTitle) {
-    return axios.get("../../api/checkPost/" + postTitle)
-  },
+    // get posts from individual box page      ######BOX
+    getPosts: function(boxId) {
+        return axios.get("../../api/posts/" + boxId);
+    },
+    getPostInfo: function(pId) {
+        return axios.get("../../api/postinfo/" + pId);
+    },
 
-  //delete post??                         ###### BOX
+    // create post for individual box page     ####### BOX/USERCREATE
+    createPost: function(postQuery) {
+        return axios.post("/api/posts", postQuery);
+    },
+
+    getPostId: function(postTitle) {
+        return axios.get("../../api/checkPost/" + postTitle)
+    },
+
+    //delete post??                         ###### BOX
 
 
-  //get comments for individual post         ##### POST
-  getComments: function(postId) {
-    return axios.get("../../../api/comments/" + postId);
-  },
+    //get comments for individual post         ##### POST
+    getComments: function(postId) {
+        return axios.get("../../../api/comments/" + postId);
+    },
 
-  createComment: function(query) {
-    return axios.post("../../../api/saveComment", query);
-  },
+    createComment: function(query) {
+        return axios.post("../../../api/saveComment", query);
+    },
 
-  getUserName: function(authorId){
-    return axios.get("../../../api/Users/" + authorId);
-  },
- 
-  //create comment                         ###### POST
-  getBoxId: function(postQuery){
-    // console.log(postQuery)
-    return axios.get("../../api/checkBox/" + postQuery.pBox);
-  }
+    getUserName: function(authorId) {
+        return axios.get("../../../api/Users/" + authorId);
+    },
 
-  //delete comment?                       #######POST
- 
+    //create comment                         ###### POST
+    getBoxId: function(postQuery) {
+        // console.log(postQuery)
+        return axios.get("../../api/checkBox/" + postQuery.pBox);
+    },
 
-  
+    //delete comment?                       #######POST
+    //sentiment grab                         ########USERCREATE
+
+    getSentiment: function(content) {
+        console.log(content);
+        return axios.post("../../api/sentiment", content);
+    }
+
+
 };

@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       len: [1,30]
     },
     score:  DataTypes.INTEGER,
-    sentimentScore: DataTypes.INTEGER,
+    sentimentScore: DataTypes.FLOAT,
     Date: DataTypes.DATE
   });
 

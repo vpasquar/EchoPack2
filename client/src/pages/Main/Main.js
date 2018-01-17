@@ -23,7 +23,7 @@ class Main extends Component {
             .then(res => {
                 if (res.data.user) {
 
-                    console.log(res.data.user);
+                    // console.log(res.data.user);
                     this.setState({ activeUser: res.data.user.userName })
                     //success, user exists do something
                 } else {
@@ -40,7 +40,7 @@ class Main extends Component {
 
         API.getBoxMain()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({ boxes: res.data.box })
             })
 
@@ -51,7 +51,7 @@ class Main extends Component {
     handleLogout = () => {
         API.logoutUser()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.setState({ activeUser: "" });
             });
 

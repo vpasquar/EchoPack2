@@ -27,6 +27,7 @@ const box = require('./controllers/boxController.js');
 const post = require('./controllers/postController.js');
 const user = require('./controllers/userController.js');
 const comment = require('./controllers/commentController.js');
+const sentiment = require('./controllers/sentimentController.js');
 //const comment
 
 const env = require('dotenv/config')
@@ -41,6 +42,7 @@ app.use(express.static("client/build"));
 //Use Controllers
 app.use('/', home);
 // home(app);
+app.use('/', sentiment);
 box(app);
 post(app);
 user(app);
