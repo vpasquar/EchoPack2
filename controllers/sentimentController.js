@@ -13,7 +13,7 @@ var natural_language_understanding = new NaturalLanguageUnderstandingV1({
 
 
 router.post("/api/sentiment", function(req, res) {
-    console.log(req.body.content);
+    // console.log(req.body.content);
 
     var parameters = {
         'text': req.body.content,

@@ -87,7 +87,7 @@ export default {
     //sentiment grab                         ########USERCREATE
 
     getSentiment: function(content) {
-        console.log(content);
+        // console.log(content);
         return axios.post("../../api/sentiment", content);
     }
 
