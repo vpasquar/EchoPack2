@@ -7,7 +7,7 @@ var db = require("../models"); // May need to specify .js file
 
 module.exports = function(app) {
 
-    app.get("/box", function(req, res) {
+    app.get("/api/box", function(req, res) {
         if (req.query.t) {
             // findAll returns all entries for a table when used with no options
             console.log('Querying: ' + req.query.t);
