@@ -11,29 +11,28 @@ module.exports = function(app) {
 
     // The following is the post route for authentication. 
 
-    app.post('/api/login',passport.authenticate('local'), function(req, res){
-          
-          console.log("req.user at api/login" + req.user);
-          res.json(req.user);
+    app.post('/api/login', passport.authenticate('local'), function(req, res) {
 
+        console.log("req.user at api/login" + req.user);
+        res.json(req.user);
+
+    });
+
+
+    app.get("/api/logincheck", function(req, res) {
+
+        if (req.user) {
+            console.log("login check server side" + req.user);
+            let userObj = {
+                user: req.user
+            }
+            res.send(userObj);
         }
-    );
-    
-
-    app.get("/api/logincheck", function(req,res) {
-
-       if (req.user) {
-        console.log("login check server side" + req.user);
-        let userObj = {
-          user:req.user
-        }
-        res.send(userObj);
-       }
     })
 
-    app.get("/api/logout", function(req,res) {
-      req.logout();
-      res.send("user logged out")
+    app.get("/api/logout", function(req, res) {
+        req.logout();
+        res.send("user logged out")
     })
     //
     // POST route for saving a new User
@@ -60,54 +59,52 @@ module.exports = function(app) {
                 res.json(err);
             });
     });
- 
 
 
-// DELETE route for deleting User
-  app.delete("/api/Users/:id", function(req, res) {
-    db.User.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbUser) {
-      res.json(dbUser);
+
+    // DELETE route for deleting User
+    app.delete("/api/Users/:id", function(req, res) {
+        db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        });
     });
-  });
 
-// PUT route for updating User
-  app.put("/api/Users", function(req, res) {
-    db.User.update({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      userName: req.body.userName,
-      email: req.body.email,
-      password: req.body.password
-    },
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-      // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-      res.json(err);
-      });
-  });
+    // PUT route for updating User
+    app.put("/api/Users", function(req, res) {
+        db.User.update({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                userName: req.body.userName,
+                email: req.body.email,
+                password: req.body.password
+            }, {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function(dbUser) {
+                res.json(dbUser);
+            })
+            .catch(function(err) {
+                // Whenever a validation or flag fails, an error is thrown
+                // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+                res.json(err);
+            });
+    });
 
-  app.get("/api/Users/:id", function(req,res){
-    db.User.findOne({
-      where:{
-          id : req.params.id
-      }
-    }).then(function(dbUser){
-      console.log(dbUser);
-      res.send(dbUser);
-    }).catch(err => res.send(err));
-  })
+    app.get("/api/Users/:id", function(req, res) {
+        db.User.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbUser) {
+            console.log(dbUser);
+            res.send(dbUser);
+        }).catch(err => res.send(err));
+    })
 
 
 };
-

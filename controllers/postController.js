@@ -45,7 +45,7 @@ app.get("/api/postinfo/:id", function(req,res) {
 
 // POST route for saving a new post
 app.post("/api/posts/", function(req, res) {
-    console.log(req.body.BoxId);
+    // console.log(req.body.BoxId);
     db.Post.create({
         BoxId: req.body.BoxId,
         UserId:req.body.UserId,
@@ -59,15 +59,15 @@ app.post("/api/posts/", function(req, res) {
 
 
 app.get("/api/checkPost/:title", function(req, res) {
-    console.log("triggered single box");
-    console.log(req.params.title);
+    // console.log("triggered single box");
+    // console.log(req.params.title);
     db.Post.findOne({
         where: {
             title: req.params.title
         }
     }).then(function(dbPost) {
         // We have access to the Boxes as an argument inside of the callback function
-        console.log(dbPost);
+        // console.log(dbPost);
         res.send(dbPost);
     }).catch(function(err) {
         res.send(err);
