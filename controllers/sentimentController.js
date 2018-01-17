@@ -41,15 +41,22 @@ router.post("/api/sentiment", function(req, res) {
             for (v in response.keywords) {
                 scores.push(response.keywords[v].sentiment.score);
             }
-            const reducer = (acc, i) => acc + i;
+            if (scores.length > 0) {
+                const reducer = (acc, i) => acc + i;
+                const tSent = scores.reduce(reducer);
 
-            const tSent = scores.reduce(reducer);
-
-            const sentiment = {
-                score: tSent
+                const sentiment = {
+                    score: tSent
+                }
+                // console.log(JSON.stringify(response, null, 2));
+                res.json(sentiment);
+            }else{
+                const sentiment = {
+                    score: 0
+                }
+                res.json(sentiment);
             }
-            // console.log(JSON.stringify(response, null, 2));
-            res.json(sentiment);
+
         }
     });
 })
