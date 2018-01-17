@@ -223,6 +223,7 @@ class Post extends Component {
                                    description={comment.content}
                                    score={comment.score}
                                    sentimentScore={comment.sentimentScore}
+                                   sentimentClass={this.sentimentAddClass(comment.sentimentScore)}
                                 /> 
                             </div>
                     ))}
