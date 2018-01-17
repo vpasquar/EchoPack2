@@ -22,8 +22,11 @@ class UserCreate extends Component {
     componentDidMount() {
         API.checkUser()
             .then(res => {
-                if (!res.data.user) {
-                    alert(" please login before adding content");
+                console.log(res.data);
+                if (res.data.user) {
+                   
+                }else{
+                     alert("please login before adding content");
                 }
                 this.setState({ 
                     activeUser: res.data.user.userName,
@@ -59,7 +62,7 @@ class UserCreate extends Component {
             pContent: "",
             cStatus: true
         })
-    }
+    };
 
     handleFormSubmit = e => {
         e.preventDefault();
@@ -77,9 +80,9 @@ class UserCreate extends Component {
             UserId: this.state.UserId,
             userName: this.state.activeUser
         }
-           console.log("The following are queries sent to API");       
-           console.log(boxQuery)
-           console.log(postQuery)
+           // console.log("The following are queries sent to API");       
+           // console.log(boxQuery)
+           // console.log(postQuery)
         if (this.state.cStatus) {
             //Requesting Box Creation
             API.createBox(boxQuery)
@@ -92,8 +95,8 @@ class UserCreate extends Component {
                 });
         } else {
             //Requesting Post Creation
-            console.log("I've triggered...Post");
-            console.log(`Searching for ID of Box...`);
+            // console.log("I've triggered...Post");
+            // console.log(`Searching for ID of Box...`);
             API.getBoxId(postQuery)
                 .then(res => {
                     postQuery.BoxId = res.data.id;
