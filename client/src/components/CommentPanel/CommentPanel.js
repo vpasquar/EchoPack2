@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import VoteBlock from '../../components/VoteBlock';
 
 const CommentPanel = props => (
-
     <div className={`box-panel comment ${props.sentimentClass}`} >
     	<p className="header">{props.userName}</p>
     	<p className="body">{props.description}</p>
