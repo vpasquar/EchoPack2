@@ -2,12 +2,10 @@
 
 .sidebar {
     width: 22.5%;
-    height: 100%;
-    // float: right;
+    height: 100%; // float: right;
     position: absolute;
     right: 0;
-    top: 0;
-    // border-left: 1px solid #cdcdcd;
+    top: 0; // border-left: 1px solid #cdcdcd;
     @media screen and (max-width: 768px) {
         width: 100%;
         position: relative;
@@ -15,10 +13,10 @@
         right: auto;
         height: auto;
     }
-    &:after{
+    &:after {
         content: '';
         display: table;
-        clear:both;
+        clear: both;
     }
     .sidecontainer {
         padding: 15px 0px;
@@ -29,6 +27,57 @@
         margin: 0px auto;
         max-width: 100%;
     }
+    .gradient-container{
+        width: 145px;
+        margin: 0px auto;
+        .gradient-guide {
+        @media screen and(max-width: 768px) {
+            display: none;
+        }
+        display: block;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        max-width: 200px;
+        margin: 0px auto;
+        .color-scheme {
+            display: block;
+            height: 250px;
+            width: 25%;
+            float: left;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#39a0ed+0,f2f2f2+50,f2f2f2+51,ee6352+100 */
+            background: #39a0ed;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #39a0ed 0%, #f2f2f2 50%, #f2f2f2 51%, #ee6352 100%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #39a0ed 0%, #f2f2f2 50%, #f2f2f2 51%, #ee6352 100%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #39a0ed 0%, #f2f2f2 50%, #f2f2f2 51%, #ee6352 100%);
+        }
+        .markers {
+            position: relative;
+            height: 250px;
+            font-size: 14px;
+            .top {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+            }
+            .middle {
+                display: flex;
+                height: 250px;
+                float: right;
+                align-items: center;
+            }
+            .bottom {
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+            }
+        }
+    }
+    }
+    
     .create-btn {
         position: relative;
         margin: 0px auto;
