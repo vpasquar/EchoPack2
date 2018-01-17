@@ -12,7 +12,7 @@ section.content {
     }
     a {
         display: block;
-       
+
         &:visited {
             color: $drk-bl;
         }
@@ -21,21 +21,22 @@ section.content {
     .container {
         // border: 1px solid #cdcdcd;
         position: relative;
-        &.clean{
+        &.clean {
             border: none;
         }
     }
-    button{
+    button {
         display: block;
-        color: rgba(black,.9);
+        color: rgba(black, .9);
         transition: all .25s ease-in-out;
         font-size: 12px;
         padding: 5px 10px;
         cursor: pointer;
-        &:hover{
+        background: white;
+        border: 1px solid #cdcdcd;
+        &:hover {
             color: $r;
             border: 1px solid $r;
         }
     }
 }
-
